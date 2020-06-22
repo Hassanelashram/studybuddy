@@ -1,13 +1,40 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1497493292307-31c376b6e479?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80)">
+  <div class="container ">
+    <h2 class="main-heading">Study Better, Study Faster</h2>
+    <h5 style="color: white;" class="sub-heading">Find a buddy/mentor to study with</h4>
+    <form action="/results">
+      <input type="text" name="query" placeholder="Math, algebra">
+      <a class="btn btn-danger" href="">Find a buddy</a>
+    </form>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row ">
+    <div class="col-sm-12 col-lg-6 my-5">
+      <h4 class="heading"> How does it work?</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat reiciendis non repudiandae adipisci, itaque temporibus doloremque repellat, at tempore voluptate quas explicabo blanditiis cumque molestiae earum necessitatibus harum iure nihil. Nisi, amet unde deleniti suscipit! Nisi cum, rerum ut quod.
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, ipsa.</p>
+      <a href="" class="btn btn-danger">Try for free</a>
+    </div>
+    <div class="col-sm-12 col-lg text-center my-5">
+      <img width="250" src="https://image.flaticon.com/icons/svg/3108/3108233.svg" alt="">
+    </div>
+  </div>
+
+<hr>
+
+  <div class="row">
+    <div class="col-sm-12 col-lg-5 my-5">
+      <img width="250" src="https://image.flaticon.com/icons/svg/2904/2904810.svg" alt="">
+    </div>
+    <div class="col-sm-12 col-lg my-5">
+      <h4 class="heading">Use your knowledge to earn money!</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est mollitia vel, excepturi culpa, suscipit neque quisquam. Incidunt rerum, voluptatibus, enim iste repellendus fugit fugiat nulla culpa ipsum accusantium quis similique molestiae veritatis, sed id at cupiditate cumque asperiores maxime, nobis. Quisquam alias tempora repellat asperiores dolore dolor sequi, atque consectetur.</p>
+      <a href="" class="btn btn-danger">Become a Mentor</a>
+    </div>
+  </div>
+</div>
 
 
 
-<h2>The user's subjects:</h2>
-....
-
-<%= current_user.learning_subjects.count %>
-
-
-
-<%= current_user.teaching_subjects.count %>
