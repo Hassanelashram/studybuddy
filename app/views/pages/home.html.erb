@@ -1,2 +1,13 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+
+
+
+<h2>The user's subjects:</h2>
+....
+
+<%= current_user.learning_subjects.count %>
+
+
+
+<%= current_user.teaching_subjects.count %>
