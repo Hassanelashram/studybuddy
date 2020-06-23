@@ -7,8 +7,20 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_one_attached :photo
 
-
   def full_name
     self.name.capitalize + ' ' + self.surname.capitalize
+  end
+
+  def profile_completetion
+    total_points = 2
+    total_points += 1 if self.location.present?
+    total_points += 1 if self.bio.present?
+    total_points += 1 if self.photo.attached?
+    return total_points
+  end
+
+  def completion_percentage
+    points = profile_completetion
+    percentage = points * 2 * 10
   end
 end
