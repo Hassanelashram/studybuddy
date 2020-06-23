@@ -2,53 +2,50 @@ Subject.destroy_all
 User.destroy_all
 
 subjects = ['Programming', 'Maths', 'Physics', 'History', 'Geography', 'Spanish']
-counter = 0
-users = []
-subjects.length.times do
-  puts subject = Subject.create(
-      name: subjects[counter]
-    )
-  counter += 1
+
+subjects.each do |s|
+  Subject.create!(name: s)
 end
 
 
-6.times do
-  puts user = User.create!(
+2.times do
+ bio = "#{Faker::Job.title}\n #{Faker::University.name}\n #{Faker::TvShows::SiliconValley.quote}"
+ user = User.create!(
     name: Faker::Games::Pokemon.name,
     surname: Faker::Games::Pokemon.name,
     location: Faker::Games::Pokemon.location,
     email: Faker::Internet.email,
+    bio: bio,
+    location: Faker::Address.state,
     password: '123456')
-  users << user.id
+ Subject.all.sample(2).each { |s| user.learning_subjects.create(subject: s)}
 end
 
-counter = 1
 2.times do
-  puts l = LearningSubject.create!(
-    user_id: counter,
-    subject_id: counter
-    )
-  counter += 1
+ bio = "#{Faker::Job.title}\n #{Faker::University.name}\n #{Faker::TvShows::SiliconValley.quote}"
+ user = User.create!(
+    name: Faker::Games::Pokemon.name,
+    surname: Faker::Games::Pokemon.name,
+    location: Faker::Games::Pokemon.location,
+    email: Faker::Internet.email,
+    password: '123456',
+    price: rand(5...15),
+    bio: bio,
+    location: Faker::Address.state)
+    Subject.all.sample(2).each { |s| user.teaching_subjects.create(subject: s)}
 end
 
-counter = 3
 2.times do
-puts t = TeachingSubject.create!(
-    user_id: counter,
-    subject_id: counter
-    )
-  counter += 1
-end
-
-counter = 5
-2.times do
-t = TeachingSubject.create!(
-    user_id: counter,
-    subject_id: counter
-    )
-l = LearningSubject.create!(
-    user_id: counter,
-    subject_id: counter
-    )
-  counter += 1
+ bio = "#{Faker::Job.title}\n #{Faker::University.name}\n #{Faker::TvShows::SiliconValley.quote}"
+ user = User.create!(
+    name: Faker::Games::Pokemon.name,
+    surname: Faker::Games::Pokemon.name,
+    location: Faker::Games::Pokemon.location,
+    email: Faker::Internet.email,
+    password: '123456',
+    price: rand(5...15),
+    bio: bio,
+    location: Faker::Address.state)
+ Subject.all.sample(2).each { |s| user.learning_subjects.create(subject: s)}
+ Subject.all.sample(2).each { |s| user.teaching_subjects.create(subject: s)}
 end
