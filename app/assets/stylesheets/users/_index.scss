@@ -1,0 +1,28 @@
+.card-user {
+  padding: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  .card-top-part {
+    display: flex;
+  }
+
+  .card-extra-info {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+
+.card-left {
+    width: 130px;
+}
+
+
+.filter-box {
+  padding: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+input {
+    box-sizing: border-box;
+    padding: 5px 20px;
+  }
