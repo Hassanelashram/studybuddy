@@ -16,20 +16,34 @@
 }
 
 .banner {
-  width: 100vw;
-  height: 80vh;
   background-position: center;
   background-size: cover;
   position: relative;
   .container {
     position: absolute;
     top: 40%;
-    left: 10%;
+    left: 20%;
   }
-  input {
+}
+
+input {
     box-sizing: border-box;
     padding: 5px 20px;
     height: 40px;
   }
+
+.btn-ghost {
+  color: #4A4A4A;
+  border: 1px solid #4A4A4A;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  margin: 5px;
+}
+
+.btn-ghost:hover {
+  opacity: 1;
 }
 
