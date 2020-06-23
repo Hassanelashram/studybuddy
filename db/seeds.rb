@@ -9,32 +9,43 @@ end
 
 
 2.times do
+ bio = "#{Faker::Job.title}\n #{Faker::University.name}\n #{Faker::TvShows::SiliconValley.quote}"
  user = User.create!(
     name: Faker::Games::Pokemon.name,
     surname: Faker::Games::Pokemon.name,
     location: Faker::Games::Pokemon.location,
     email: Faker::Internet.email,
+    bio: bio,
+    location: Faker::Address.state,
     password: '123456')
  Subject.all.sample(2).each { |s| user.learning_subjects.create(subject: s)}
 end
 
 2.times do
+ bio = "#{Faker::Job.title}\n #{Faker::University.name}\n #{Faker::TvShows::SiliconValley.quote}"
  user = User.create!(
     name: Faker::Games::Pokemon.name,
     surname: Faker::Games::Pokemon.name,
     location: Faker::Games::Pokemon.location,
     email: Faker::Internet.email,
-    password: '123456')
- Subject.all.sample(2).each { |s| user.teaching_subjects.create(subject: s)}
+    password: '123456',
+    price: rand(5...15),
+    bio: bio,
+    location: Faker::Address.state)
+    Subject.all.sample(2).each { |s| user.teaching_subjects.create(subject: s)}
 end
 
 2.times do
+ bio = "#{Faker::Job.title}\n #{Faker::University.name}\n #{Faker::TvShows::SiliconValley.quote}"
  user = User.create!(
     name: Faker::Games::Pokemon.name,
     surname: Faker::Games::Pokemon.name,
     location: Faker::Games::Pokemon.location,
     email: Faker::Internet.email,
-    password: '123456')
+    password: '123456',
+    price: rand(5...15),
+    bio: bio,
+    location: Faker::Address.state)
  Subject.all.sample(2).each { |s| user.learning_subjects.create(subject: s)}
  Subject.all.sample(2).each { |s| user.teaching_subjects.create(subject: s)}
 end

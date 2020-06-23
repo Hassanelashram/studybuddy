@@ -1,1 +1,58 @@
-<%= @user.name %>
+
+
+
+<div class="container my-5">
+  <div class="row">
+    <div class="col-4 text-center">
+      <div class="profile-box">
+        <% if @user.photo.attached? %>
+          <%= cl_image_tag @user.photo.key  %>
+        <% else %>
+          <img src="https://image.flaticon.com/icons/svg/847/847969.svg" width="120" alt="">
+        <% end %>
+        <h4><%= @user.full_name %></h4>
+          <% @user.teaching_subjects.each do |s| %>
+            <div class="tag"><%= s.name %></div>
+          <% end %>
+          <hr>
+          <div class="extra-info text-left">
+            <p>
+              <img src="https://image.flaticon.com/icons/svg/3068/3068550.svg" width="30" alt="">
+              English, French, Spanish
+            </p>
+            <p><img src="https://image.flaticon.com/icons/svg/3014/3014764.svg" width="30" alt="">
+            <%= @user.location %>
+            </p>
+            <p><img src="https://image.flaticon.com/icons/svg/3094/3094812.svg" width="30" alt="">
+            444 reviews
+            </p>
+            <% if @user.price.present? %>
+            <p><img src="https://image.flaticon.com/icons/svg/3050/3050241.svg" width="30" alt="">
+              <%= @user.price %> euros / Hour
+            </p>
+            <% end %>
+            <hr>
+            <a href="" class="btn btn-danger">Request booking</a>
+            <a href="" class="btn btn-danger"><i class="fas fa-comments"></i> Chat</a>
+          </div>
+      </div>
+
+
+
+    </div>
+    <div class="col">
+      <div class="descrption">
+        <h2 class="heading">About me</h2>
+        <p><%= @user.bio %></p>
+      </div>
+      <div class="reviews">
+        <h2 class="heading">Reviews</h2>
+        <h4 class="sub-heading">William Shakespear</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, nemo!</p>
+        <hr>
+        <h4 class="sub-heading">William Shakesword</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, nemo!</p>
+      </div>
+    </div>
+  </div>
+</div>
