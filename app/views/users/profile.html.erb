@@ -21,7 +21,7 @@
             <%= @user.location %>
             </p>
             <p><img src="https://image.flaticon.com/icons/svg/3094/3094812.svg" width="30" alt="">
-            444 reviews
+            <%= @reviews.count %> <%= "review".pluralize(@reviews.count) %> (<%= @user.average_ratings %>)
             </p>
             <% if @user.price.present? %>
             <p><img src="https://image.flaticon.com/icons/svg/3050/3050241.svg" width="30" alt="">
@@ -44,20 +44,17 @@
       </div>
       <div class="reviews">
         <h2 class="heading">Reviews</h2>
-        <h4 class="sub-heading">William Shakespear</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, nemo!</p>
+        <% @reviews.each do |r| %>
+        <h4 class="sub-heading">username <%= r.stars %></h4>
+        <p><%= r.content %></p>
         <hr>
-        <h4 class="sub-heading">William Shakesword</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, nemo!</p>
+        <% end %>
       </div>
     </div>
   </div>
 </div>
 
-<% @reviews.each do |r| %>
-  <%= r.content %>
-  <%= r.stars %>
-<% end %>
+
 <%= render "reviews/form" %>
 
 

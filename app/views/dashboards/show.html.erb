@@ -11,7 +11,10 @@
         <div class="left">
           <h5><%= current_user.full_name %></h5>
           <p><img src="https://image.flaticon.com/icons/svg/3094/3094812.svg" width="30" alt="">
-            444 reviews
+            <%= @reviews.count %> <%= "review".pluralize(@reviews.count) %>
+            <% if @reviews.count > 0 %>
+              (<%= current_user.average_ratings %>)
+              <% end %>
             </p>
         </div>
         <div class="right">

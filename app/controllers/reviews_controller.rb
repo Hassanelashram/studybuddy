@@ -11,6 +11,8 @@ class ReviewsController < ApplicationController
     else
       render "users/profile"
     end
+
+    authorize @review
   end
 
   private

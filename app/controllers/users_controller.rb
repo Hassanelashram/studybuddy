@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     else
       @users = policy_scope(User)
     end
+
   end
 
   def profile

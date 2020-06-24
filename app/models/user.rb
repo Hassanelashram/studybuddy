@@ -11,6 +11,15 @@ class User < ApplicationRecord
     self.name.capitalize + ' ' + self.surname.capitalize
   end
 
+  def average_ratings
+    reviews = Review.where(reviewed_id: self.id)
+    sum = 0
+    reviews.each do |r|
+      sum += r.stars
+    end
+    average = sum.fdiv(reviews.count)
+  end
+
   def profile_completetion
     total_points = 2
     total_points += 1 if self.location.present?
