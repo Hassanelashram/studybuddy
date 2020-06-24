@@ -53,3 +53,13 @@
     </div>
   </div>
 </div>
+
+<% @reviews.each do |r| %>
+  <%= r.content %>
+  <%= r.stars %>
+<% end %>
+<%= render "reviews/form" %>
+
+
+
+

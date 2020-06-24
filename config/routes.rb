@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   resource :dashboard, only: :show
   get "/results", to: 'users#index', as: "results"
   get "/users/:id", to: 'users#profile', as: "profile"
+  resources :user do
+    resources :reviews, only: [:create]
+  end
+
   resources :chats, only: [:index, :create, :show] do
    resources :messages, only:  :create
   end
