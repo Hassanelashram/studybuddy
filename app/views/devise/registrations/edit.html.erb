@@ -1,14 +1,31 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
+<div class="container mt-5" style="height: 100vh;" id="section-one">
+   <h2>First, tell us about yourself</h2>
+    <%= f.input :bio, required: true, autofocus: true %>
+    <a class="nav-link" href="#fat">next</a>
+</div>
+
+<div class="container mt-5" style="height: 100vh;" id="fat">
+    <h2>Where are you from ?</h2>
+    <%= f.input :location, required: true, autofocus: true %>
+     <a href='#' id="firstSection">Click</a>
+</div>
+
+<div class="container mt-5" style="height: 100vh;" id="mdo">
+  <h2>Let's add a profile picture!</h2>
+  <%= f.input :photo, as: :file %>
+   <a href="#section-four" class="btn btn-success">Next</a>
+</div>
+
+<div class="container" style="height: 100vh;" id="section-four">
+    <h2>Are you a student or a mentor ?</h2>
+</div>
 
   <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-    <%= f.input :bio, required: true, autofocus: true %>
-    <%= f.input :photo, as: :file, required: true, autofocus: true %>
-    <%= f.input :location, required: true, autofocus: true %>
-    <%= f.input :price, required: true, autofocus: true %>
+
+
+
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
@@ -36,3 +53,5 @@
 <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
+
+

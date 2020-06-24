@@ -1,0 +1,52 @@
+<div class="container">
+  <% @messages.each do |message| %>
+  <% if message.user == current_user %>
+  <div class="message text-right">
+    <div class="message--header">
+      <span class="message--author">
+        <%= message.user.full_name %>
+      </span>
+      <span class="message--time">
+        <%= message.message_time %>
+      </span>
+    </div>
+    <div class="message--text">
+      <% message.body.lines.each do |line| %>
+      <p><%= line %></p>
+      <% end %>
+    </div>
+  </div>
+  <% else %>
+  <div class="message">
+    <div class="message--header">
+      <span class="message--author">
+        <%= message.user.full_name %>
+      </span>
+      <span class="message--time">
+        <%= message.message_time %>
+      </span>
+    </div>
+    <div class="message--text">
+      <% message.body.lines.each do |line| %>
+      <p><%= line %></p>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
+  <% end %>
+
+
+  <%= simple_form_for([@chat, @message]) do |f|%>
+  <div class="row">
+    <div class="col-8">
+      <%= f.input :body %>
+    </div>
+    <div class="col mt-5">
+      <%= f.submit %>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+
+
