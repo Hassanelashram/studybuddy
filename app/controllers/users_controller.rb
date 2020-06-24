@@ -12,6 +12,8 @@ class UsersController < ApplicationController
 
   def profile
     @user = User.find(params[:id])
+    @review = Review.new
+    @reviews = Review.where(reviewed_id: @user.id)
   end
 
   private
