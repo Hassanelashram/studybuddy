@@ -30,7 +30,7 @@
             <% end %>
             <hr>
             <a href="" class="btn btn-danger">Request booking</a>
-            <a href="" class="btn btn-danger"><i class="fas fa-comments"></i> Chat</a>
+            <%= link_to 'message', chats_path(sender_id: current_user, recipient_id: @user), method: :post, class: 'btn btn-flat' %>
           </div>
       </div>
 
