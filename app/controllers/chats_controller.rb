@@ -2,7 +2,7 @@ class ChatsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @chats = Chat.involving(current_user)
+    @chats = policy_scope(Chat).involving(current_user)
   end
 
   def show
@@ -10,11 +10,12 @@ class ChatsController < ApplicationController
     @other_user = current_user == @chat.sender ? @chat.recipient : @chat.sender
     @messages = @chat.messages.order(created_at: :asc).last(20)
     @message = Message.new
+    authorize @chat
   end
 
   def create
     @chat = Chat.between(params[:sender_id], params[:recipient_id]).first_or_create!(chat_params)
-
+    authorize @chat
     redirect_to "/chats/#{@chat.id}/messages"
   end
 

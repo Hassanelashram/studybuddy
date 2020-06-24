@@ -7,8 +7,9 @@ Rails.application.routes.draw do
   resources :user do
     resources :reviews, only: [:create]
   end
-  resources :chats, only: [:index, :create] do
-   resources :messages, only: [:index, :create]
+
+  resources :chats, only: [:index, :create, :show] do
+   resources :messages, only:  :create
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
