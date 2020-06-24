@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   resource :dashboard, only: :show
   get "/results", to: 'users#index', as: "results"
   get "/users/:id", to: 'users#profile', as: "profile"
-  resources :chats, only: [:index, :create] do
-   resources :messages, only: [:index, :create]
+  resources :chats, only: [:index, :create, :show] do
+   resources :messages, only:  :create
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
