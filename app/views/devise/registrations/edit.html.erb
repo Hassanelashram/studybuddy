@@ -62,14 +62,13 @@
    <h4>First, tell us about yourself</h4>
     <%= f.input :bio, required: true, label: false, autofocus: true %>
 
-<div class="form-actions d-flex align-items-center justify-content-between">
-
+<div class="row">
+  <div class="col-4">
     <h4>Where are you from?</h4>
     <%= f.input :location, required: true, label: false, autofocus: true %>
-
-</div>
-
-    <h4>What is your first language?</h4>
+  </div>
+    <div class="col-6">
+     <h4>What is your first language?</h4>
     <%= f.input :language, label: false, collection: ["Mandarin Chinese",
   "Spanish",
   "English",
@@ -92,6 +91,10 @@
   "Italian",
   "Turkish",
   "Cantonese/Yue"]%>
+
+    </div>
+  </div>
+
 
 
   <h4> Let's add a profile picture!</h4>
