@@ -1,0 +1,12 @@
+<div class="container my-5 ">
+  <div class="row">
+    <h2 class="col-12 sub-heading text-center">What subjects are you teaching? (or just click finish)</h2>
+    <div class="col-8 mx-auto">
+      <%= simple_form_for :wizard, url: wizard_path, method: :put do |f| %>
+        <%=  f.input :subjects, collection: @subjects.pluck(:name, :id), input_html: {multiple: true} %>
+        <%= f.input :price, placeholder: 'price per hour' %>
+        <%= f.submit "Finish", class: 'btn btn-flat' %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -18,9 +18,10 @@ class BookingsController < ApplicationController
   end
 
   def update
-    @booking.update(status: 'confirmed')
+    @booking.update(status: params[:status])
     @booking.save
-    redirect_to dashboard_path
+    redirect_to allbookings_path
+    authorize @booking
   end
 
   def destroy

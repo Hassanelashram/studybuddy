@@ -35,8 +35,8 @@
                 <%= link_to 'Get help', profile_path(u), class: 'btn btn-flat mt-4' %>
               </div>
               <div class="card-right ml-4">
-                <h5><%= u.full_name %></h5>
-                <h5>Ratings</h5>
+                <h5><%= u.full_name  %></h5>
+                <h5><%= u.average_ratings if u.received_reviews.present? %></h5>
                 <% u.teaching_subjects.each do |s| %>
                 <div class="tag"><%= s.name %></div>
                 <% end %>
@@ -53,7 +53,7 @@
                 <%= u.location %>
               </p>
               <p><img src="https://image.flaticon.com/icons/svg/3094/3094812.svg" width="30" alt="">
-                444 reviews
+                <%= u.received_reviews.count %>
               </p>
 
             </div>
