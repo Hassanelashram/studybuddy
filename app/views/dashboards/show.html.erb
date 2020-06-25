@@ -4,6 +4,9 @@
       <div class="box profile-notification text-center">
         <p>Your profile is <%= current_user.completion_percentage %>% completed</p>
         <%= link_to 'Finish now', edit_user_registration_path %>
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" style="background-color: green; width: <%= current_user.completion_percentage %>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
       </div>
     </div>
     <div class="col">
