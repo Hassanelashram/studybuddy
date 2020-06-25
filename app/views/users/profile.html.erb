@@ -32,9 +32,33 @@
             <%= simple_form_for([@user, @booking]) do |f| %>
             <%= f.input :start_date %>
             <%=f.input :end_date %>
-            <%= f.submit 'Request booking', class: 'btn btn-danger' %>
+            <%= f.submit 'Request booking', class: 'btn btn-danger space1' %>
             <% end %>
-            <%= link_to 'message', chats_path(sender_id: current_user, recipient_id: @user), method: :post, class: 'btn btn-flat' %>
+            <%= link_to 'message', chats_path(sender_id: current_user, recipient_id: @user), method: :post, class: 'btn btn-flat space' %>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-flat space" data-toggle="modal" data-target="#staticBackdrop">
+              Review
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Review User</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <%= render "reviews/form" %>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
       </div>
 
@@ -59,7 +83,7 @@
 </div>
 
 
-<%= render "reviews/form" %>
+
 
 
 
