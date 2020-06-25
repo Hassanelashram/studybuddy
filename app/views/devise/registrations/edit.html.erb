@@ -1,30 +1,120 @@
+
+<!-- <h1>OPTION 1</h1>
+
+
+<div class="container ">
+  <div class="mx-auto form-frame" style="width: 800px;">
+
+<form>
+  <div class="form-row py-2">
+      <label for="inputEmail4">First, tell us about yourself</label>
+      <input type="email" class="form-control" id="inputEmail4" style="height: 100px;>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+       <label for="inputState">Where are you from?</label>
+      <select id="inputState" class="form-control">
+        <option selected>Spain</option>
+        <option selected>France</option>
+        <option selected>Portugal</option>
+        <option selected>Germany</option>
+        <option selected>Netherlands</option>
+
+        <option>...</option>
+      </select>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputState">Which languages interest you?</label>
+      <select id="inputState" class="form-control">
+        <option selected>English</option>
+        <option selected>French</option>
+        <option selected>Spanish</option>
+        <option selected>German</option>
+        <option selected>Arabic</option>
+        <option selected>Chinese</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+
+
+ -->
+
+<!-- <h1>OPTION 2 (simple_form_for)</h1> -->
+
+
+
+
+
+ <div class="container ">
+  <div class="mx-auto form-frame" style="width: 800px;">
+
+
+
+    <h2>Are you a student or a mentor ?</h2>
+<div class= "d-flex">
+  <div class= "d-flex">
+    <input type="checkbox">
+    <p>student</p>
+  </div>
+  <div class= "d-flex">
+    <input type="checkbox">
+    <p>mentor</p>
+  </div>
+</div>
+
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
-<div class="container mt-5" style="height: 100vh;" id="section-one">
+<div class="container mt-5" style="height: 20vh;" id="section-one">
    <h2>First, tell us about yourself</h2>
     <%= f.input :bio, required: true, autofocus: true %>
-    <a class="nav-link" href="#fat">next</a>
+
 </div>
 
-<div class="container mt-5" style="height: 100vh;" id="fat">
-    <h2>Where are you from ?</h2>
+<div class="container mt-5" style="height: 20vh;" id="fat">
+    <h2>Where are you from?</h2>
     <%= f.input :location, required: true, autofocus: true %>
-     <a href='#' id="firstSection">Click</a>
 </div>
 
-<div class="container mt-5" style="height: 100vh;" id="mdo">
+
+    <h2>What languages are you interested in?</h2>
+    <%= f.input :language, collection: ["Mandarin Chinese",
+  "Spanish",
+  "English",
+  "Hindi/Urdu",
+  "Arabic",
+  "Bengali",
+  "Portuguese",
+  "Russian",
+  "Japanese",
+  "German",
+  "Javanese",
+  "Punjabi",
+  "Wu",
+  "French",
+  "Telugu",
+  "Vietnamese",
+  "Marathi",
+  "Korean",
+  "Tamil",
+  "Italian",
+  "Turkish",
+  "Cantonese/Yue"]%>
+
+
+<div class="container mt-5" style="height: 40vh;" id="mdo">
   <h2>Let's add a profile picture!</h2>
   <%= f.input :photo, as: :file %>
    <a href="#section-four" class="btn btn-success">Next</a>
 </div>
 
-<div class="container" style="height: 100vh;" id="section-four">
-    <h2>Are you a student or a mentor ?</h2>
-</div>
 
   <div class="form-inputs">
 
-
+  </div>
+</div>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
