@@ -5,7 +5,7 @@
     <h2 class="col-8 sub-heading mx-auto">Your Chats</h2>
     <% @chats.each do |c| %>
     <div class="col-8 mx-auto">
-      <%= link_to chat_messages_path(c) do  %>
+      <%= link_to chat_path(c) do  %>
       <div class="chat-box my-1">
         <div class="left">
           <% if c.other_user(current_user).photo.attached? %>
