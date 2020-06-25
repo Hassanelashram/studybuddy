@@ -7,8 +7,9 @@ class MessagesController < ApplicationController
     @message.user = current_user
     @messages = @chat.messages.order(created_at: :desc)
     if @message.save
-      redirect_to chat_messages_path(@chat)
+      redirect_to chat_path(@chat)
     end
+    authorize @message
   end
 
   private

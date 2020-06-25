@@ -8,7 +8,16 @@ class UsersController < ApplicationController
     else
       @users = policy_scope(User)
     end
+  end
 
+  def autocomplete
+    if params[:query].present?
+      subjects = Subject.where("name ILIKE ?", "#{params[:query]}%").limit(4)
+    else
+      subjects = []
+    end
+    skip_authorization
+    render json: { subjects: subjects.pluck(:name) }
   end
 
   def profile

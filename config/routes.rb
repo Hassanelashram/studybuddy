@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resource :dashboard, only: :show
   get "/results", to: 'users#index', as: "results"
+  get "/autocomplete", to: 'users#autocomplete'
   get "/allbookings", to: 'dashboards#allbookings', as: "allbookings"
   get "/allearnings", to: 'dashboards#allearnings', as: "allearnings"
   get "/users/:id", to: 'users#profile', as: "profile"

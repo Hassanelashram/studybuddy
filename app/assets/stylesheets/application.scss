@@ -18,3 +18,16 @@
 @import "dashboards/index";
 
 @import 'select2/dist/css/select2';
+
+.init2 {
+  width: 100%;
+}
+
+#display-sugg {
+  background-color: white;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  li {
+    list-style: none;
+  }
+}
