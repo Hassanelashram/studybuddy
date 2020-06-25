@@ -4,8 +4,16 @@
     <h2 class="col-12 sub-heading text-center">What subjects are you learning?</h2>
     <div class="col-8 mx-auto">
       <%= simple_form_for :wizard, url: wizard_path, method: :put do |f| %>
-        <%= f.input :subjects, collection: @subjects.pluck(:name, :id), input_html: {multiple: true} %>
-        <%= f.submit "Next", class: 'btn btn-flat' %>
+      <div class="row">
+        <div class="col-12 bg-dark">
+           <%= select_tag :subjects, options_from_collection_for_select(@subjects, :id, :name), multiple: true, class: 'select2' %>
+
+        </div>
+        <div class="col-12">
+          <%= f.submit "Next", class: 'btn btn-flat' %>
+        </div>
+      </div>
+
       <% end %>
     </div>
   </div>
