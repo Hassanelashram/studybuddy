@@ -1,6 +1,10 @@
 class User < ApplicationRecord
   has_many :learning_subjects
   has_many :teaching_subjects
+  has_many :bookings_relationships, foreign_key: :mentor_id, class_name: 'Booking'
+  has_many :requested_bookings, through: :bookings_relationships, source: :mentor
+  has_many :bookings_relationships, foreign_key: :student_id, class_name: 'Booking'
+  has_many :made_bookings, through: :bookings_relationships, source: :student
   has_many :received_reviews, foreign_key: :reviewed_id, class_name: "Review", dependent: :destroy
   has_many :sent_reviews, foreign_key: :reviewer_id, class_name: "Review", dependent: :destroy
 

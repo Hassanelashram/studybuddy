@@ -13,6 +13,7 @@ class UsersController < ApplicationController
 
   def profile
     @user = User.find(params[:id])
+    @booking = Booking.new
     @review = Review.new
     @reviews = Review.where(reviewed_id: @user.id)
     authorize @user
