@@ -8,9 +8,8 @@
 # migrations from scratch. Old migrations may fail to apply correctly if those
 # migrations use external dependencies or application code.
 #
-# It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_24_144053) do
+ActiveRecord::Schema.define(version: 2020_06_24_141357) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +73,17 @@ ActiveRecord::Schema.define(version: 2020_06_24_144053) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.text "content"
+    t.integer "stars"
+    t.bigint "reviewer_id", null: false
+    t.bigint "reviewed_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["reviewed_id"], name: "index_reviews_on_reviewed_id"
+    t.index ["reviewer_id"], name: "index_reviews_on_reviewer_id"
+  end
+
   create_table "subjects", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -111,6 +121,8 @@ ActiveRecord::Schema.define(version: 2020_06_24_144053) do
   add_foreign_key "learning_subjects", "users"
   add_foreign_key "messages", "chats"
   add_foreign_key "messages", "users"
+  add_foreign_key "reviews", "users", column: "reviewed_id"
+  add_foreign_key "reviews", "users", column: "reviewer_id"
   add_foreign_key "teaching_subjects", "subjects"
   add_foreign_key "teaching_subjects", "users"
 end

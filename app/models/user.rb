@@ -5,6 +5,8 @@ class User < ApplicationRecord
   has_many :requested_bookings, through: :bookings_relationships, source: :mentor
   has_many :bookings_relationships, foreign_key: :student_id, class_name: 'Booking'
   has_many :made_bookings, through: :bookings_relationships, source: :student
+  has_many :received_reviews, foreign_key: :reviewed_id, class_name: "Review", dependent: :destroy
+  has_many :sent_reviews, foreign_key: :reviewer_id, class_name: "Review", dependent: :destroy
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -14,6 +16,15 @@ class User < ApplicationRecord
 
   def full_name
     self.name.capitalize + ' ' + self.surname.capitalize
+  end
+
+  def average_ratings
+    reviews = Review.where(reviewed_id: self.id)
+    sum = 0
+    reviews.each do |r|
+      sum += r.stars
+    end
+    average = sum.fdiv(reviews.count)
   end
 
   def profile_completetion

@@ -1,4 +1,5 @@
 Subject.destroy_all
+Message.destroy_all
 User.destroy_all
 
 subjects = ['Programming', 'Maths', 'Physics', 'History', 'Geography', 'Spanish']
