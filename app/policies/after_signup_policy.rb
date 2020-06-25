@@ -8,4 +8,8 @@ class AfterSignupPolicy < ApplicationPolicy
   def show?
     true
   end
+
+  def update?
+    user.present?
+  end
 end

@@ -5,7 +5,8 @@ class User < ApplicationRecord
   has_many :sent_bookings, foreign_key: :student_id, class_name: 'Booking'
   has_many :received_reviews, foreign_key: :reviewed_id, class_name: "Review", dependent: :destroy
   has_many :sent_reviews, foreign_key: :reviewer_id, class_name: "Review", dependent: :destroy
-
+  accepts_nested_attributes_for :learning_subjects
+  accepts_nested_attributes_for :teaching_subjects
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
