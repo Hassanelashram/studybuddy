@@ -1,8 +1,17 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.irishtimes.com/polopoly_fs/1.3484190.1525432416!/image/image.jpg_gen/derivatives/box_620_330/image.jpg);">
-  <div class="container">
+  <div class="container" data-controller="autocomplete">
     <form action="/results">
-      <input type="text" name="query" value="<%= params[:query] %>">
-      <button class="btn btn-flat" type="submit" >Search</button>
+      <div class="row">
+        <div class="col-3">
+          <input autocomplete="off" data-target='autocomplete.input' data-action="keyup->autocomplete#suggest" type="text" name="query" id="search" value="<%= params[:query] %>">
+           <ul data-target='autocomplete.suggestions' id="display-sugg" class="">
+        </ul>
+        </div>
+        <div class="col-8">
+          <button class="btn btn-flat" type="submit"> Search </button>
+        </div>
+      </div>
+
     </form>
     <div class="btn-group btn-group-toggle" data-toggle="buttons">
 

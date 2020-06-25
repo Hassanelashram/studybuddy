@@ -22,11 +22,11 @@ class AfterSignupController < ApplicationController
     when :personal
       @user.update_attributes(wizard_params)
     when :learning_subjects
-      params[:subjects].reject(&:blank?).each do |id|
+      params.dig(:wizard, :subjects).reject(&:blank?).each do |id|
         @user.learning_subjects.create(subject_id: id)
       end
     when :teaching_subjects
-      params[:subjects].reject(&:blank?).each do |id|
+      params.dig(:wizard, :subjects).reject(&:blank?).each do |id|
         @user.teaching_subjects.create(subject_id: id)
       end
       price = params.dig(:wizard, :price)
