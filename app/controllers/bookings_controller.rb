@@ -12,6 +12,7 @@ class BookingsController < ApplicationController
       redirect_to @user
       flash[:danger] = 'please select Booking date'
     end
+    authorize @booking
   end
 
   def edit
