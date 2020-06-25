@@ -58,31 +58,19 @@
   <%= f.error_notification %>
 
 
-    <h4>Are you a student or a mentor ?</h4>
-<div class= "d-flex">
-  <div class= "d-flex">
-    <input type="checkbox">
-    <p>student</p>
-  </div>
-  <div class= "d-flex">
-    <input type="checkbox">
-    <p>mentor</p>
-  </div>
-</div>
-
 
    <h4>First, tell us about yourself</h4>
-    <%= f.input :bio, required: true, autofocus: true %>
+    <%= f.input :bio, required: true, label: false, autofocus: true %>
 
-
+<div class="form-actions d-flex align-items-center justify-content-between">
 
     <h4>Where are you from?</h4>
-    <%= f.input :location, required: true, autofocus: true %>
+    <%= f.input :location, required: true, label: false, autofocus: true %>
 
-
+</div>
 
     <h4>What is your first language?</h4>
-    <%= f.input :language, collection: ["Mandarin Chinese",
+    <%= f.input :language, label: false, collection: ["Mandarin Chinese",
   "Spanish",
   "English",
   "Hindi/Urdu",
@@ -106,8 +94,8 @@
   "Cantonese/Yue"]%>
 
 
-  <h4>Let's add a profile picture!</h4>
-  <%= f.input :photo, as: :file %>
+  <h4> Let's add a profile picture!</h4>
+  <%= f.input :photo, label: false, as: :file %>
    <a href="#section-four" class="btn btn-flat">Next</a>
 
 
