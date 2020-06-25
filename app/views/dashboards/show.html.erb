@@ -30,35 +30,7 @@
     <div class="col-md-6 col-sm-12">
       <div class="box dashboard-section">
         <h5 class="sub-heading">Booking requests</h5>
-        <p>You have 2 requests pendings</p>
-        <%= link_to 'Answer requests', root_url, class: 'btn btn-flat'  %>
-      </div>
-    </div>
-    <div class="col-md-6 col-sm-12">
-      <div class="box dashboard-section">
-        <h5 class="sub-heading">Bookings</h5>
-        <% current_user.bookings_relationships.where(student_id: current_user.id).each do |f| %>
-        <h5></h5>
-        <%= f.start_date %>
-        <%= f.start_date %>
-        <br>
-        <%= f.mentor.name %>
-        <%= f.mentor.surname %>
-        <br>
-        <%= current_user.name %>
-        <%= current_user.surname %>
-        <%= f.mentor.price %>
-        <br>
-        <%= f.mentor.location %>
-        <% end %>
-      </div>
-    </div>
-
-    <div class="col-md-6 col-sm-12" >
-        <p> You have
-          <%= current_user.received_bookings.count %>
-            booking requests pending
-          </p>
+        <p>You have <%= current_user.received_bookings.count %> <%= "request".pluralize(current_user.received_bookings.count) %> pending</p>
         <%= link_to 'Answer requests', allbookings_path, class: 'btn btn-flat'  %>
       </div>
     </div>
