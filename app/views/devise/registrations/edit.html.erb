@@ -53,7 +53,12 @@
 
 
 
-    <h2>Are you a student or a mentor ?</h2>
+
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= f.error_notification %>
+
+
+    <h4>Are you a student or a mentor ?</h4>
 <div class= "d-flex">
   <div class= "d-flex">
     <input type="checkbox">
@@ -65,21 +70,18 @@
   </div>
 </div>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
-<div class="container mt-5" style="height: 20vh;" id="section-one">
-   <h2>First, tell us about yourself</h2>
+
+   <h4>First, tell us about yourself</h4>
     <%= f.input :bio, required: true, autofocus: true %>
 
-</div>
 
-<div class="container mt-5" style="height: 20vh;" id="fat">
-    <h2>Where are you from?</h2>
+
+    <h4>Where are you from?</h4>
     <%= f.input :location, required: true, autofocus: true %>
-</div>
 
 
-    <h2>What languages are you interested in?</h2>
+
+    <h4>What is your first language?</h4>
     <%= f.input :language, collection: ["Mandarin Chinese",
   "Spanish",
   "English",
@@ -104,11 +106,17 @@
   "Cantonese/Yue"]%>
 
 
-<div class="container mt-5" style="height: 40vh;" id="mdo">
+  <h4>Let's add a profile picture!</h4>
+  <%= f.input :photo, as: :file %>
+   <a href="#section-four" class="btn btn-flat">Next</a>
+
+
+
+<!-- <div class="container mt-5" style="height: 40vh;" id="mdo">
   <h2>Let's add a profile picture!</h2>
   <%= f.input :photo, as: :file %>
-   <a href="#section-four" class="btn btn-success">Next</a>
-</div>
+   <a href="#section-four" class="btn btn-flat">Next</a>
+</div> -->
 
 
   <div class="form-inputs">
