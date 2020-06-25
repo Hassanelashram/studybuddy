@@ -72,8 +72,8 @@
       </div>
       <div class="reviews">
         <h2 class="heading">Reviews</h2>
-        <% @reviews.each do |r| %>
-        <h4 class="sub-heading">username <%= r.stars %></h4>
+        <% @user.received_reviews.each do |r| %>
+        <h4 class="sub-heading"><%= r.reviewer.full_name %> · <%= r.stars %> stars</h4>
         <p><%= r.content %></p>
         <hr>
         <% end %>

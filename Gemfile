@@ -5,6 +5,7 @@ ruby '2.6.6'
 
 gem 'faker'
 gem 'pundit'
+gem 'wicked'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'cloudinary', '~> 1.12.0'
 
