@@ -33,11 +33,32 @@
     </div>
     <div class="col-6">
       <div class="box dashboard-section">
+        <h5 class="sub-heading">Bookings</h5>
+        <% current_user.bookings_relationships.where(student_id: current_user.id).each do |f| %>
+        <h5></h5>
+        <%= f.start_date %>
+        <%= f.start_date %>
+        <br>
+        <%= f.mentor.name %>
+        <%= f.mentor.surname %>
+        <br>
+        <%= current_user.name %>
+        <%= current_user.surname %>
+        <%= f.mentor.price %>
+        <br>
+        <%= f.mentor.location %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-6">
+      <div class="box dashboard-section">
         <h5 class="sub-heading">Earnings</h5>
         <h5>You earned 220 euros</h5>
         <%= link_to 'View history', root_url, class: 'btn btn-flat'  %>
       </div>
     </div>
+
   </div>
 </div>
 </div>

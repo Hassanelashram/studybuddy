@@ -1,6 +1,11 @@
 class User < ApplicationRecord
   has_many :learning_subjects
   has_many :teaching_subjects
+  has_many :bookings_relationships, foreign_key: :mentor_id, class_name: 'Booking'
+  has_many :requested_bookings, through: :bookings_relationships, source: :mentor
+  has_many :bookings_relationships, foreign_key: :student_id, class_name: 'Booking'
+  has_many :made_bookings, through: :bookings_relationships, source: :student
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,

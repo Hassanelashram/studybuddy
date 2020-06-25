@@ -12,6 +12,7 @@ class UsersController < ApplicationController
 
   def profile
     @user = User.find(params[:id])
+    @booking = Booking.new
   end
 
   private
