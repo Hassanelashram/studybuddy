@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_24_130525) do
+ActiveRecord::Schema.define(version: 2020_06_24_144053) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,18 @@ ActiveRecord::Schema.define(version: 2020_06_24_130525) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "bookings", force: :cascade do |t|
+    t.integer "mentor_id", null: false
+    t.integer "student_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.index ["mentor_id", "student_id"], name: "index_bookings_on_mentor_id_and_student_id", unique: true
+    t.index ["mentor_id"], name: "index_bookings_on_mentor_id"
+    t.index ["student_id"], name: "index_bookings_on_student_id"
   end
 
   create_table "chats", force: :cascade do |t|
@@ -60,6 +72,17 @@ ActiveRecord::Schema.define(version: 2020_06_24_130525) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["chat_id"], name: "index_messages_on_chat_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text "content"
+    t.integer "stars"
+    t.bigint "reviewer_id", null: false
+    t.bigint "reviewed_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["reviewed_id"], name: "index_reviews_on_reviewed_id"
+    t.index ["reviewer_id"], name: "index_reviews_on_reviewer_id"
   end
 
   create_table "subjects", force: :cascade do |t|
@@ -100,6 +123,8 @@ ActiveRecord::Schema.define(version: 2020_06_24_130525) do
   add_foreign_key "learning_subjects", "users"
   add_foreign_key "messages", "chats"
   add_foreign_key "messages", "users"
+  add_foreign_key "reviews", "users", column: "reviewed_id"
+  add_foreign_key "reviews", "users", column: "reviewer_id"
   add_foreign_key "teaching_subjects", "subjects"
   add_foreign_key "teaching_subjects", "users"
 end
