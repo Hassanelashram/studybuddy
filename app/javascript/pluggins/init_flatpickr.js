@@ -1,4 +1,4 @@
-import flatpickr from "flatpickr";
+
 
 const schedual = () => {
   const inputs = document.querySelectorAll(".kasi")
