@@ -48,7 +48,11 @@
           <div class="card-user">
             <div class="card-top-part">
               <div class="card-left text-center">
-                <img src="https://image.flaticon.com/icons/svg/847/847969.svg" width="120" alt="">
+                <% if u.photo.attached? %>
+                  <%= cl_image_tag u.photo.key, crop: :thumb, gravity: :face, width: 120, height: 120, class: "rounded-circle dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false  %>
+                <% else %>
+                 <img src="https://image.flaticon.com/icons/svg/847/847969.svg" width="120" class="rounded-circle dropdown-toggle", id="navbarDropdown", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false"  >
+                <% end %>
                 <%= link_to 'Get help', profile_path(u), class: 'btn btn-flat mt-4' %>
               </div>
               <div class="card-right ml-4">
