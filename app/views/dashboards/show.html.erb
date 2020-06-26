@@ -1,4 +1,4 @@
-<div class="container my-5">
+<div class="container mt-5">
   <div class="row">
     <div class="col-md-6 col-sm-12">
       <div class="box profile-notification text-center">
@@ -48,8 +48,25 @@
         <%= link_to 'See my reviews', profile_path(current_user), class: 'btn btn-flat'  %>
       </div>
     </div>
-
   </div>
 </div>
 </div>
+
+<div class=" mb-5 container">
+  <div class="row">
+  <div class="col-12">
+      <div class="box dashboard-section">
+        <h5 class="sub-heading">Bookings made</h5>
+        <p> You made
+          <%= current_user.sent_bookings.count %> <%= "booking".pluralize(current_user.sent_bookings.count) %>
+            <% if @reviews.count > 0 %>
+              (<%= current_user.average_ratings %>)
+            <% end %>
+        </p>
+        <%= link_to 'See bookings', allbookings_path, class: 'btn btn-flat'  %>
+      </div>
+    </div>
+</div>
+</div>
+
 
