@@ -6,11 +6,10 @@ class ReviewsController < ApplicationController
     @review.reviewer = current_user
     @review.reviewed = @user
     # authorize @review
-    if @review.save
-      redirect_to profile_path(@user)
-    else
-      render "users/profile"
+    unless @review.save
+    flash[:notice] = 'pls review ur review'
     end
+    redirect_to profile_path(@user)
 
     authorize @review
   end

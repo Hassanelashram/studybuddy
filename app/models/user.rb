@@ -12,6 +12,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_one_attached :photo
+  
+  validates :email, presence: true
+  validates :name, presence: true
+  validates :surname, presence: true
 
   def full_name
     self.name.capitalize + ' ' + self.surname.capitalize

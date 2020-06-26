@@ -33,7 +33,6 @@ class AfterSignupController < ApplicationController
       @user.update(price: price) if price.present?
     end
     render_wizard @user
-
   end
 
   private
