@@ -37,3 +37,37 @@
     </div>
   </div>
 </div>
+
+<div class="container my-4">
+  <div class="row">
+    <h2 class="col-12 sub-heading">Bookings made</h2>
+    <div class="col-12">
+      <table class="table table-dark">
+        <thead>
+          <tr>
+            <th scope="col">Student</th>
+            <th scope="col">Date</th>
+            <th scope="col">Duration (hours)</th>
+            <th scope="col">Total</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% current_user.sent_bookings.each do |booking| %>
+            <tr>
+              <td> <%= link_to booking.mentor.full_name, profile_path(booking.mentor)  %></td>
+              <td><%= booking.start_date.month %>/<%= booking.start_date.day %>/<%= booking.start_date.year %></td>
+              <td><%= booking.end_date.hour - booking.start_date.hour %> </td>
+              <td><%= booking.mentor.price * (booking.end_date.hour - booking.start_date.hour) %></td>
+              <td><%= booking.status %>
+
+
+              </td>
+          <% end %>
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
