@@ -1,16 +1,45 @@
 
 <div class="container my-5 ">
-  <div class="row">
+  <div class="row my-4">
+    <div class="col-12 mb-3">
+      <h5>Step 2/3</h5>
+      <div class="progress">
+      <div class="progress-bar" role="progressbar" style="background-color: green; width: 66%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    </div>
+  </div>
+
+
+<div id="buttons" class="row text-center mx-auto">
+    <div class="col-12">
+      <h2 class="col-12 sub-heading ">Are you going to learn subjects?</h2>
+        <a id="yes-btn" href="#" class="btn btn-success">Yes</a>
+        <a id="no-btn"  href="/after_signup/teaching_subjects" class="btn btn-info">No</a>
+    </div>
+  </div>
+
+
+  <div id="choices" class="row">
     <h2 class="col-12 sub-heading text-center">What subjects are you learning?</h2>
     <div class="col-8 mx-auto">
       <%= simple_form_for :wizard, url: wizard_path, method: :put do |f| %>
 
         <%= f.input :subjects,label: false, collection: @subjects.pluck(:name, :id), input_html: {multiple: true, class: 'select2'}  %>
-
           <%= f.submit "Next", class: 'btn btn-flat' %>
-
-
       <% end %>
     </div>
   </div>
 </div>
+
+<script>
+  let yesBtn = document.querySelector('#yes-btn');
+  let noBtn = document.querySelector('#no-btn');
+  let subjects = document.querySelector('#choices');
+  let finish = document.querySelector('#finish');
+  let buttons = document.querySelector('#buttons');
+  yesBtn.addEventListener('click', (e) => {
+     e.preventDefault()
+     subjects.style.display = 'block';
+     buttons.style.display = 'none';
+  })
+</script>

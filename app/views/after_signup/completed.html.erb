@@ -1,0 +1,40 @@
+<div class="container my-5">
+  <div class="row">
+    <div class="col-12">
+      <h2 class="sub-heading">
+        Thank you <%= @user.full_name %>
+      </h2>
+      <p style="font-size: 12px; color: darkgray">You can always edit your information later.</p>
+      <hr>
+    </div>
+    <div class="col-12">
+      <p><strong>Learning Subjects: </strong>
+          <% @user.learning_subjects.each do |s| %>
+            <span class="tag"><%= s.name %></span>
+        <% end %>
+        </p>
+    </div>
+    <div class="col-12">
+      <p><strong>Teaching Subjects: </strong>
+          <% @user.teaching_subjects.each do |s| %>
+            <span class="tag"><%= s.name %></span>
+        <% end %>
+        </p>
+    </div>
+    <div class="col-12">
+      <p><strong>Rate/hour: </strong>
+          <%= @user.price %> euros
+          <strong>Location: </strong>
+          <%= @user.location %>
+        </p>
+    </div>
+    <div class="col-12">
+      <p><strong>Biography: </strong>
+          <%= @user.bio %>
+        </p>
+    </div>
+    <div class="col-12">
+      <%= link_to 'Go to my Dashboard', dashboard_path, class: 'btn btn-flat'  %>
+    </div>
+  </div>
+</div>
