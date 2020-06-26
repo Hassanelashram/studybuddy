@@ -1,33 +1,54 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.irishtimes.com/polopoly_fs/1.3484190.1525432416!/image/image.jpg_gen/derivatives/box_620_330/image.jpg);">
-  <div class="container">
+  <div class="container" data-controller="autocomplete">
     <form action="/results">
-      <input type="text" name="query" value="<%= params[:query] %>">
-      <button class="btn btn-flat" type="submit" >Search</button>
+      <div class="row">
+        <div class="col-3">
+          <input autocomplete="off" data-target='autocomplete.input' data-action="keyup->autocomplete#suggest" type="text" name="query" id="search" value="<%= params[:query] %>">
+          <ul data-target='autocomplete.suggestions' id="display-sugg" class="">
+          </ul>
+        </div>
+        <div class="col-8">
+          <button class="btn btn-flat" type="submit"> Search </button>
+        </div>
+      </div>
     </form>
     <div class="btn-group btn-group-toggle" data-toggle="buttons">
-
       <%= link_to 'Mentors', results_path( query: params[:query]), class:  "btn btn-secondary #{' active'if !params[:type].present?}"   %>
       <%= link_to 'Students', results_path(type: 'student', query: params[:query]), class:  "btn btn-secondary #{' active'if params[:type].present?}" %>
     </div>
   </div>
 </div>
 
-<div class="container my-4">
+<div style="box-shadow: 0 0 15px rgba(0,0,0,0.2);" class="container bg-light">
   <div class="row">
-    <div class="col-4">
-      <h2 class=" title">Filters</h2>
-      <div class="filter-box">
-        <p>Best ratings</p>
-        <hr>
-        <p>Location</p>
-        <hr>
-        <p></p>
+
+    <div  class="col-2 p-3 text-center <%= ' low-bar'if params[:type].present? %>">
+      <%= link_to 'Students', results_path(type: 'student', query: params[:query]) %>
+    </div>
+    <div class="col-2 text-center p-3<%= ' low-bar'if params[:query] &&  !params[:city].present? &&  !params[:type].present? %>">
+      <%= link_to 'Mentors', results_path( query: params[:query])   %>
+    </div>
+    <div class="col-2 text-center p-3 <%= ' low-bar'if params[:city].present?  %>">
+      <% if user_signed_in? %>
+      <%= link_to 'In my city', results_path(request.params.merge(city: current_user.location))   %>
+      <% end %>
+    </div>
+    <div class="col text-right p-3">
+      <div class="btn-group dropleft">
+        <i data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"class="fas fa-filter"></i>
+        <div class="dropdown-menu">
+          <%= link_to 'Lowest Rates', root_url, class: 'dropdown-item'  %>
+          <a class="dropdown-item" href="#">Lowest rates</a>
+        <a class="dropdown-item" href="#">Highest Ratings</a>
+        <a class="dropdown-item" href="#">New members</a>
+        </div>
       </div>
     </div>
-    <div class="col">
-      <div class="row">
-        <% @users.each do |u| %>
-        <div class="col-12 my-2">
+  </div>
+
+  <div class="row my-4">
+    <% @users.each do |u| %>
+        <div class="col-10 my-2 mx-auto">
           <div class="card-user">
             <div class="card-top-part">
               <div class="card-left text-center">
@@ -35,8 +56,8 @@
                 <%= link_to 'Get help', profile_path(u), class: 'btn btn-flat mt-4' %>
               </div>
               <div class="card-right ml-4">
-                <h5><%= u.full_name %></h5>
-                <h5>Ratings</h5>
+                <h5><%= u.full_name  %></h5>
+                <h5><%= u.average_ratings if u.received_reviews.present? %></h5>
                 <% u.teaching_subjects.each do |s| %>
                 <div class="tag"><%= s.name %></div>
                 <% end %>
@@ -53,14 +74,13 @@
                 <%= u.location %>
               </p>
               <p><img src="https://image.flaticon.com/icons/svg/3094/3094812.svg" width="30" alt="">
-                444 reviews
+                <%= u.received_reviews.count %>
               </p>
 
             </div>
           </div>
         </div>
         <% end %>
-      </div>
-    </div>
   </div>
+
 </div>

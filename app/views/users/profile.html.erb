@@ -1,6 +1,6 @@
 <div class="container my-5">
   <div class="row">
-    <div class="col-4 text-center">
+    <div class="col-lg-4 col-md-6 col-sm-12 text-center">
       <div class="profile-box">
         <% if @user.photo.attached? %>
           <%= cl_image_tag @user.photo.key  %>
@@ -21,7 +21,7 @@
             <%= @user.location %>
             </p>
             <p><img src="https://image.flaticon.com/icons/svg/3094/3094812.svg" width="30" alt="">
-            444 reviews
+            <%= @reviews.count %> <%= "review".pluralize(@reviews.count) %> (<%= @user.average_ratings %>)
             </p>
             <% if @user.price.present? %>
             <p><img src="https://image.flaticon.com/icons/svg/3050/3050241.svg" width="30" alt="">
@@ -29,27 +29,97 @@
             </p>
             <% end %>
             <hr>
-            <a href="" class="btn btn-danger">Request booking</a>
-            <%= link_to 'message', chats_path(sender_id: current_user, recipient_id: @user), method: :post, class: 'btn btn-flat' %>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-danger space1" data-toggle="modal" data-target="#staticBackdrop">
+              Request Booking
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="modal-body">
+
+                        <%= simple_form_for([@user, @booking]) do |f| %>
+                          <div class="row">
+                            <div class="col-12">
+                              <input type="text" name="booking[start_date]" class="kasi flatpickr">
+                              <input type="text" name="booking[end_date]" class="kasi flatpickr">
+                            </div>
+                            <div class="col-12">
+                              <%= f.submit 'Request booking', class: 'btn btn-danger booking' %>
+                            </div>
+                          </div>
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-flat" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <%= link_to 'message', chats_path(sender_id: current_user, recipient_id: @user), method: :post, class: 'btn btn-flat space' %>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-flat space" data-toggle="modal" data-target="#staticBackdrop2">
+              Review
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop2" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Review User</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <%= render "reviews/form" %>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
       </div>
 
 
 
     </div>
-    <div class="col">
+    <div class="col-md-6 col-sm-12">
       <div class="descrption">
         <h2 class="heading">About me</h2>
         <p><%= @user.bio %></p>
       </div>
       <div class="reviews">
         <h2 class="heading">Reviews</h2>
-        <h4 class="sub-heading">William Shakespear</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, nemo!</p>
+        <% @user.received_reviews.each do |r| %>
+        <h4 class="sub-heading"><%= r.reviewer.full_name %> · <%= r.stars %> stars</h4>
+        <p><%= r.content %></p>
         <hr>
-        <h4 class="sub-heading">William Shakesword</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, nemo!</p>
+        <% end %>
       </div>
     </div>
   </div>
 </div>
+
+
+
+
+
+
+

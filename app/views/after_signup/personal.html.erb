@@ -1,0 +1,15 @@
+
+<div class="container my-5 ">
+  <div class="row">
+    <h2 class="col-12 sub-heading text-center">Tell us about yourself?</h2>
+    <div class="col-8 mx-auto">
+      <%= simple_form_for @user, url: wizard_path, method: :put do |f| %>
+        <%=  f.input :bio, label: false %>
+        <%=  f.input :location,label: false, placeholder: 'What city do you live in?' %>
+        <h5>Maybe a nice picture ?</h5>
+        <%= f.input :photo, as: :file, label: false %>
+        <%= f.submit "Next", class: 'btn btn-flat' %>
+      <% end %>
+    </div>
+  </div>
+</div>
