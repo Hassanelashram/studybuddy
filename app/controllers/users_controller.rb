@@ -25,6 +25,7 @@ class UsersController < ApplicationController
   end
 
   def profile
+    @chat = Chat.find(params[:id])
     @user = User.find(params[:id])
     @booking = Booking.new
     @review = Review.new
