@@ -1,27 +1,123 @@
+
+<!-- <h1>OPTION 1</h1>
+
+
+<div class="container ">
+  <div class="mx-auto form-frame" style="width: 800px;">
+
+<form>
+  <div class="form-row py-2">
+      <label for="inputEmail4">First, tell us about yourself</label>
+      <input type="email" class="form-control" id="inputEmail4" style="height: 100px;>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+       <label for="inputState">Where are you from?</label>
+      <select id="inputState" class="form-control">
+        <option selected>Spain</option>
+        <option selected>France</option>
+        <option selected>Portugal</option>
+        <option selected>Germany</option>
+        <option selected>Netherlands</option>
+
+        <option>...</option>
+      </select>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputState">Which languages interest you?</label>
+      <select id="inputState" class="form-control">
+        <option selected>English</option>
+        <option selected>French</option>
+        <option selected>Spanish</option>
+        <option selected>German</option>
+        <option selected>Arabic</option>
+        <option selected>Chinese</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+
+
+ -->
+
+<!-- <h1>OPTION 2 (simple_form_for)</h1> -->
+
+
+
+
+
+ <div class="container ">
+  <div class="mx-auto form-frame" style="width: 800px;">
+
+
+
+
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
-<div class="container mt-5" style="height: 100vh;" id="section-one">
-   <h2>First, tell us about yourself</h2>
-    <%= f.input :bio, required: true, autofocus: true %>
-    <a class="nav-link" href="#fat">next</a>
+
+
+
+   <h4>First, tell us about yourself</h4>
+    <%= f.input :bio, required: true, label: false, autofocus: true %>
+
+<div class="row">
+  <div class="col-4">
+    <h4>Where are you from?</h4>
+    <%= f.input :location, required: true, label: false, autofocus: true %>
+  </div>
+    <div class="col-6">
+     <h4>What is your first language?</h4>
+    <%= f.input :language, label: false, collection: ["Mandarin Chinese",
+  "Spanish",
+  "English",
+  "Hindi/Urdu",
+  "Arabic",
+  "Bengali",
+  "Portuguese",
+  "Russian",
+  "Japanese",
+  "German",
+  "Javanese",
+  "Punjabi",
+  "Wu",
+  "French",
+  "Telugu",
+  "Vietnamese",
+  "Marathi",
+  "Korean",
+  "Tamil",
+  "Italian",
+  "Turkish",
+  "Cantonese/Yue"]%>
+
+    </div>
+  </div>
+
+
+
+  <h4> Let's add a profile picture!</h4>
+  <%= f.input :photo, label: false, as: :file %>
+   <a href="#section-four" class="btn btn-flat">Next</a>
+
 </div>
 
-<div class="container mt-5" style="height: 100vh;" id="fat">
-    <h2>Where are you from ?</h2>
-    <%= f.input :location, required: true, autofocus: true %>
-     <a href='#' id="firstSection">Click</a>
-</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-<div class="container mt-5" style="height: 100vh;" id="mdo">
-  <h2>Let's add a profile picture!</h2>
-  <%= f.input :photo, as: :file %>
-   <a href="#section-four" class="btn btn-success">Next</a>
-</div>
-
-<div class="container" style="height: 100vh;" id="section-four">
-    <h2>Are you a student or a mentor ?</h2>
-</div>
-
+<div class="card" style="width: 27rem, m-">
+ <div class="container" style="width: 400px;">
   <div class="form-inputs">
 
 
@@ -43,15 +139,22 @@
                 input_html: { autocomplete: "current-password" } %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
+  <div class="form-actions" class="btn btn-flat">
+    <%= f.button :submit, "Update", class: "btn-flat" %>
+
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<br>
 
 <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
+
+
+</div>
+</div>
+
+
 
 
