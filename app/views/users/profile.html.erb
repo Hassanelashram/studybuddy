@@ -3,7 +3,7 @@
     <div class="col-lg-4 col-md-6 col-sm-12 text-center">
       <div class="profile-box">
         <% if @user.photo.attached? %>
-          <%= cl_image_tag @user.photo.key  %>
+          <%= cl_image_tag @user.photo.key, crop: :thumb, gravity: :face, width: 120, height: 120, class: "rounded-circle dropdown-toggle", id: "navbarDropdown"  %>
         <% else %>
           <img src="https://image.flaticon.com/icons/svg/847/847969.svg" width="120" alt="">
         <% end %>

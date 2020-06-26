@@ -19,7 +19,7 @@
         </li>
         <li class="nav-item dropdown" style="cursor: pointer;">
           <% if current_user.photo.attached? %>
-            <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false  %>
+            <%= cl_image_tag current_user.photo.key, crop: :thumb, gravity: :face, width: 50, height: 50, class: "rounded-circle dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false  %>
           <% else %>
             <img src="https://image.flaticon.com/icons/svg/847/847969.svg" class="avatar dropdown-toggle", id="navbarDropdown", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false"  >
           <% end %>

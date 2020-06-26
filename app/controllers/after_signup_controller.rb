@@ -38,6 +38,6 @@ class AfterSignupController < ApplicationController
   private
 
   def wizard_params
-    params.require(:user).permit(:bio, :location, :price, languages: [])
+    params.require(:user).permit(:bio,:photo, :location, :price, languages: [])
   end
 end
