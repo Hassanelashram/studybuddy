@@ -19,9 +19,7 @@
 
 @import 'select2/dist/css/select2';
 
-.init2 {
-  width: 100%;
-}
+
 
 #display-sugg {
   background-color: white;
@@ -42,5 +40,5 @@
 }
 
 #choices {
-
+  display: none;
 }

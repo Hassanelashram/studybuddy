@@ -8,11 +8,11 @@
     </div>
   </div>
 
-  <div class="row text-center mx-auto">
+  <div id="buttons" class="row text-center mx-auto">
     <div class="col-12">
       <h2 class="col-12 sub-heading ">Are you going to be a mentor?</h2>
-        <a id="yes-btn" onclick="showChoices()" href="" class="btn btn-success">Yes</a>
-        <a id="no-btn" href="" class="btn btn-info">No</a>
+        <a id="yes-btn" href="#" class="btn btn-success">Yes</a>
+        <a id="no-btn"  href="/after_signup/completed" class="btn btn-info">No</a>
     </div>
   </div>
 
@@ -29,19 +29,19 @@
     </div>
   </div>
 </div>
+</div>
+
 
 <script>
   let yesBtn = document.querySelector('#yes-btn');
+  let noBtn = document.querySelector('#no-btn');
   let subjects = document.querySelector('#choices');
-  let finish = document.querySelector('.btn-flat');
-  showChoices = () => {
-    subjects.style.display = 'block';
-  }
-  // document.addEventListener('click', (e) => {
-  //   if (e.target.innerText === 'Yes') {
+  let finish = document.querySelector('#finish');
+  let buttons = document.querySelector('#buttons');
+  yesBtn.addEventListener('click', (e) => {
+     e.preventDefault()
+     subjects.style.display = 'block';
+     buttons.style.display = 'none';
 
-  //   } else {
-  //     finish.style.display = 'inline-block'
-  //   }
-  // })
+  })
 </script>
