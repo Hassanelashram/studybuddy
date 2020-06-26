@@ -8,15 +8,13 @@ Rails.application.routes.draw do
   get "/allbookings", to: 'dashboards#allbookings', as: "allbookings"
   get "/allearnings", to: 'dashboards#allearnings', as: "allearnings"
   get "/users/:id", to: 'users#profile', as: "profile"
-  resources :user do
-    resources :reviews, only: [:create]
-  end
 
   resources :chats, only: [:index, :create, :show] do
    resources :messages, only:  :create
   end
   resources :users do
   	resources :bookings, only: :create
+    resources :reviews, only: [:create]
   end
 
   resources :bookings, only: :update
