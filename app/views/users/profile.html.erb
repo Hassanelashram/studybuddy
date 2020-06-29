@@ -51,8 +51,8 @@
                         <%= simple_form_for([@user, @booking]) do |f| %>
                           <div class="row">
                             <div class="col-12">
-                              <input type="text" name="booking[start_date]" class="kasi flatpickr box">
-                              <input type="text" name="booking[end_date]" class="kasi flatpickr box">
+                              <input type="text" name="booking[start_date]" class="kasi flatpickr box" placeholder="Starting Time">
+                              <input type="text" name="booking[end_date]" class="kasi flatpickr box" placeholder="Ending Time">
                             </div>
                             <div class="col-12">
                               <%= f.submit 'Request booking', class: 'btn btn-danger booking' %>
