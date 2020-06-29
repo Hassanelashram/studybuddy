@@ -1,0 +1,33 @@
+<% if owner_of_message %>
+          <div class="message text-right p-3 mb-2 right">
+            <div class="message--author">
+              <%= message.user.full_name %>
+            </div>
+            <div class="message--text">
+              <% message.body.lines.each do |line| %>
+                <p><%= line %></p>
+              <% end %>
+            </div>
+            <span class="message--time">
+              <%= message.message_time %>
+            </span>
+          </div>
+        <% else %>
+
+          <div class="message p-3 mb-2 left">
+
+            <div class="message--author">
+              <%= message.user.full_name %>
+            </div>
+
+
+            <div class="message--text">
+              <% message.body.lines.each do |line| %>
+                <p><%= line %></p>
+              <% end %>
+            </div>
+            <span class="message--time">
+              <%= message.message_time %>
+            </span>
+          </div>
+        <% end %>
