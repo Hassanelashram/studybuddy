@@ -30,7 +30,7 @@
             <% end %>
             <hr>
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-danger space1" data-toggle="modal" data-target="#staticBackdrop">
+            <button type="button" class="btn btn-danger space1" data-toggle="modal" data-target="#staticBackdrop" <%= 'disabled' unless user_signed_in? %>>
               Request Meeting
             </button>
 
@@ -71,7 +71,7 @@
 
             <%= link_to 'Message', chats_path(sender_id: current_user, recipient_id: @user), method: :post, class: 'btn btn-flat space' %>
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-flat space" data-toggle="modal" data-target="#staticBackdrop2">
+            <button type="button" class="btn btn-flat space" data-toggle="modal" data-target="#staticBackdrop2" <%= 'disabled' unless user_signed_in? %>>
               Review
             </button>
 
