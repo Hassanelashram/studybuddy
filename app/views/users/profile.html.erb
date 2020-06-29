@@ -31,7 +31,7 @@
             <hr>
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-danger space1" data-toggle="modal" data-target="#staticBackdrop">
-              Request Booking
+              Request Meeting
             </button>
 
             <!-- Modal -->
@@ -39,7 +39,7 @@
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                    <h5 class="modal-title" id="staticBackdropLabel">When do you want to meet your Mentor</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -51,8 +51,8 @@
                         <%= simple_form_for([@user, @booking]) do |f| %>
                           <div class="row">
                             <div class="col-12">
-                              <input type="text" name="booking[start_date]" class="kasi flatpickr">
-                              <input type="text" name="booking[end_date]" class="kasi flatpickr">
+                              <input type="text" name="booking[start_date]" class="kasi flatpickr box">
+                              <input type="text" name="booking[end_date]" class="kasi flatpickr box">
                             </div>
                             <div class="col-12">
                               <%= f.submit 'Request booking', class: 'btn btn-danger booking' %>
@@ -69,7 +69,7 @@
               </div>
             </div>
 
-            <%= link_to 'message', chats_path(sender_id: current_user, recipient_id: @user), method: :post, class: 'btn btn-flat space' %>
+            <%= link_to 'Message', chats_path(sender_id: current_user, recipient_id: @user), method: :post, class: 'btn btn-flat space' %>
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-flat space" data-toggle="modal" data-target="#staticBackdrop2">
               Review
