@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def index
     query = params[:query]
-    @users = policy_scope(User)
+    @users = policy_scope(User).paginate(page: params[:page], per_page: 5)
     if query.present?
       if params[:type] == 'student'
         @users = @users.joins(learning_subjects: :subject).where("subjects.name ILIKE ?", query)

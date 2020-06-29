@@ -117,6 +117,10 @@
         </div>
         <% end %>
         <% end %>
+
+    <div class="col-3 mx-auto">
+      <%= will_paginate @users, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+    </div>
   </div>
 
 </div>
