@@ -1,7 +1,7 @@
 class AfterSignupController < ApplicationController
   include Wicked::Wizard
 
-  steps :personal, :learning_subjects, :teaching_subjects, :completed
+  steps :personal, :learning_subjects, :teaching_subjects, :language, :completed
 
   def show
     @user = current_user
@@ -10,6 +10,8 @@ class AfterSignupController < ApplicationController
       @subjects = Subject.all
     when :teaching_subjects
       @subjects = Subject.all
+    when :language
+      @user = current_user
     end
     authorize :after_signup, :show?
     render_wizard
@@ -31,6 +33,8 @@ class AfterSignupController < ApplicationController
       end
       price = params.dig(:wizard, :price)
       @user.update(price: price) if price.present?
+    when :language
+      @user.update_attributes(wizard_params)
     end
     render_wizard @user
   end
@@ -38,6 +42,6 @@ class AfterSignupController < ApplicationController
   private
 
   def wizard_params
-    params.require(:user).permit(:bio,:photo, :location, :price, languages: [])
+    params.require(:user).permit(:bio,:photo, :location, :price, :language)
   end
 end
