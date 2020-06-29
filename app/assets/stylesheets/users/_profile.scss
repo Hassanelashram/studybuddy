@@ -24,8 +24,24 @@
 .space1 {
   margin: 5px;
   width:315px;
+  font-weight: lighter;
+  color: white;
+  padding: 8px 24px;
+  border-radius: 7px;
+  transition: background 0.3s ease;
 }
 
 .booking {
-  margin-top: 10px;
+  margin-top: 5px;
+  width: 465px;
+  font-weight: lighter;
+  color: white;
+  padding: 8px 24px;
+  border-radius: 7px;
+  transition: background 0.3s ease;
+}
+
+.box {
+  width: 465px;
+  margin-bottom: 5px;
 }

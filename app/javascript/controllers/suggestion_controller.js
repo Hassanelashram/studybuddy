@@ -7,6 +7,6 @@ export default class extends Controller {
   }
 
   get url() {
-    return `results?query=${this.element.innerHTML}`;
+    return `results?query=${this.element.innerText}`;
   }
 }

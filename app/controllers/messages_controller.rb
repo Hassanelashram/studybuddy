@@ -7,7 +7,10 @@ class MessagesController < ApplicationController
     @message.user = current_user
     @messages = @chat.messages.order(created_at: :desc)
     if @message.save
-      redirect_to chat_path(@chat)
+      ChatroomChannel.broadcast_to(
+      @chat,
+      render_to_string(partial: "chats/message", locals: { message: @message, owner_of_message: false })
+      )
     end
     authorize @message
   end
