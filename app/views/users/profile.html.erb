@@ -29,45 +29,48 @@
             </p>
             <% end %>
             <hr>
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-danger space1" data-toggle="modal" data-target="#staticBackdrop" <%= 'disabled' unless user_signed_in? %>>
-              Request Meeting
-            </button>
 
-            <!-- Modal -->
-            <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">When do you want to meet your Mentor</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="row">
-                    <div class="col-12">
-                      <div class="modal-body">
+            <% if @user.teaching_subjects.present? %>
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-danger space1" data-toggle="modal" data-target="#staticBackdrop" <%= 'disabled' unless user_signed_in? %>>
+                Request Meeting
+              </button>
 
-                        <%= simple_form_for([@user, @booking]) do |f| %>
-                          <div class="row">
-                            <div class="col-12">
-                              <input type="text" name="booking[start_date]" class="kasi flatpickr box" placeholder="Starting Time">
-                              <input type="text" name="booking[end_date]" class="kasi flatpickr box" placeholder="Ending Time">
+              <!-- Modal -->
+              <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="staticBackdropLabel">When do you want to meet your Mentor</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="modal-body">
+
+                          <%= simple_form_for([@user, @booking]) do |f| %>
+                            <div class="row">
+                              <div class="col-12">
+                                <input type="text" name="booking[start_date]" class="kasi flatpickr box" placeholder="Starting Time">
+                                <input type="text" name="booking[end_date]" class="kasi flatpickr box" placeholder="Ending Time">
+                              </div>
+                              <div class="col-12">
+                                <%= f.submit 'Request booking', class: 'btn btn-danger booking' %>
+                              </div>
                             </div>
-                            <div class="col-12">
-                              <%= f.submit 'Request booking', class: 'btn btn-danger booking' %>
-                            </div>
-                          </div>
-                        <% end %>
+                          <% end %>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-flat" data-dismiss="modal">Close</button>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-flat" data-dismiss="modal">Close</button>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            <% end %>
 
             <%= link_to 'Message', chats_path(sender_id: current_user, recipient_id: @user), method: :post, class: 'btn btn-flat space' %>
             <!-- Button trigger modal -->
