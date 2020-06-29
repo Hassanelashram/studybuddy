@@ -14,6 +14,7 @@
       <%= simple_form_for @user, url: wizard_path, method: :put do |f| %>
         <%=  f.input :bio, label: false %>
         <%=  f.input :location,label: false, placeholder: 'What city do you live in?' %>
+        <%=  f.input :language, label: false, collection: ['English', 'French', 'Spanish', 'German'] %>
         <h5>Maybe a nice picture ?</h5>
         <%= f.input :photo, as: :file, label: false %>
         <%= f.submit "Next", class: 'btn btn-flat' %>
