@@ -69,7 +69,7 @@ user1 = User.create!(
     email: Faker::Internet.email,
     password: '123456',
     price: rand(5...15),
-    bio: "a nice bio",
+    bio: "Live life to the fullest...study to the fullest...learn to the fullest...be the best version of you...always!",
     location: Faker::Address.state,
     language: @languages.sample)
 
@@ -136,7 +136,7 @@ user5 = User.create!(
     email: Faker::Internet.email,
     password: '123456',
     price: rand(5...15),
-    bio: "",
+    bio: "I teach and learn...and I will continue to do so all my life...until the day the lord calls me out and says it's enough",
     location: Faker::Address.state,
     language: @languages.sample)
 
@@ -159,7 +159,7 @@ user6 = User.create!(
 
 user6.photo.attach(io: picture6, filename: "avatar.png", content_type: "image/png" )
 Subject.all.sample(rand(1...3)).each { |s| user6.learning_subjects.create(subject: s)}
-Subject.all.sample(rand(1...2)).each { |s| user6.teaching_subjects.create(subject: s)}
+
 
 
 picture7 = URI.open("https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80")
@@ -176,7 +176,7 @@ user7 = User.create!(
 
 user7.photo.attach(io: picture7, filename: "avatar.png", content_type: "image/png" )
 Subject.all.sample(rand(1...3)).each { |s| user7.learning_subjects.create(subject: s)}
-Subject.all.sample(rand(1...2)).each { |s| user7.teaching_subjects.create(subject: s)}
+
 
 
 picture8 = URI.open("https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80")
@@ -255,7 +255,7 @@ user12 = User.create!(
     email: Faker::Internet.email,
     password: '123456',
     price: rand(5...15),
-    bio: "Likr Rocky, I'm a fighter! Let me take you under my wing and I'll lead you to victory in your field!",
+    bio: "Like Rocky, I'm a fighter! Let me take you under my wing and I'll lead you to victory in your field!",
     location: Faker::Address.state,
     language: @languages.sample)
 
@@ -287,7 +287,6 @@ user14 = User.create!(
     surname: Faker::Name.last_name,
     email: Faker::Internet.email,
     password: '123456',
-    price: rand(5...15),
     bio: "Help me...help you! Together we can make it happen :)",
     location: Faker::Address.state,
     language: @languages.sample)
@@ -303,13 +302,91 @@ user15 = User.create!(
     surname: Faker::Name.last_name,
     email: Faker::Internet.email,
     password: '123456',
-    price: rand(5...15),
     bio: "I'm so lost in my field. Any help is appreciated!! I want to reach my objective and am willing to give all my heart and soul in order to reach it. Can you help me?",
     location: Faker::Address.state,
     language: @languages.sample)
 
 user15.photo.attach(io: picture15, filename: "avatar.png", content_type: "image/png" )
 Subject.all.sample(rand(1...3)).each { |s| user15.learning_subjects.create(subject: s)}
+
+
+
+picture16 = URI.open("https://images.unsplash.com/photo-1541647376583-8934aaf3448a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80")
+
+user16 = User.create!(
+    name: Faker::Name.first_name,
+    surname: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    password: '123456',
+    bio: "I'm last in my class :( I need to receive some serious help. I'm quite desperate!",
+    location: Faker::Address.state,
+    language: @languages.sample)
+
+user16.photo.attach(io: picture16, filename: "avatar.png", content_type: "image/png" )
+Subject.all.sample(rand(1...3)).each { |s| user16.learning_subjects.create(subject: s)}
+
+
+picture17 = URI.open("https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80")
+
+user17 = User.create!(
+    name: Faker::Name.first_name,
+    surname: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    password: '123456',
+    bio: "I need to pass my exams...am tired of repeating. Please somebody help me!!",
+    location: Faker::Address.state,
+    language: @languages.sample)
+
+user17.photo.attach(io: picture17, filename: "avatar.png", content_type: "image/png" )
+Subject.all.sample(rand(1...3)).each { |s| user17.learning_subjects.create(subject: s)}
+
+
+
+picture18 = URI.open("https://images.unsplash.com/photo-1544348817-5f2cf14b88c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80")
+
+user18 = User.create!(
+    name: Faker::Name.first_name,
+    surname: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    password: '123456',
+    bio: "I'm struggling so much with my course material. I need someone to help me out. I'd love to be able to bounce my knowledge of someone who can fill in the blanks.",
+    location: Faker::Address.state,
+    language: @languages.sample)
+
+user18.photo.attach(io: picture18, filename: "avatar.png", content_type: "image/png" )
+Subject.all.sample(rand(1...3)).each { |s| user18.learning_subjects.create(subject: s)}
+
+
+picture19 = URI.open("https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80")
+
+user19 = User.create!(
+    name: Faker::Name.first_name,
+    surname: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    password: '123456',
+    bio: "I'm struggling so much with my course material. I need someone to help me out. I'd love to be able to bounce my knowledge of someone who can fill in the blanks.",
+    location: Faker::Address.state,
+    language: @languages.sample)
+
+user19.photo.attach(io: picture19, filename: "avatar.png", content_type: "image/png" )
+Subject.all.sample(rand(1...3)).each { |s| user19.learning_subjects.create(subject: s)}
+
+
+
+picture20 = URI.open("https://images.unsplash.com/photo-1542131596-dea5384842c7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80")
+
+user20 = User.create!(
+    name: Faker::Name.first_name,
+    surname: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    password: '123456',
+    bio: "I need some help in order to pass my exams at the end of the term. I'll be needing at least 10 to 15 hours of intensive courses.",
+    location: Faker::Address.state,
+    language: @languages.sample)
+
+user20.photo.attach(io: picture20, filename: "avatar.png", content_type: "image/png" )
+Subject.all.sample(rand(1...3)).each { |s| user20.learning_subjects.create(subject: s)}
+
 
 
 # 15.times do
