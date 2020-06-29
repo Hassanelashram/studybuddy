@@ -4,4 +4,5 @@ class Review < ApplicationRecord
 
   validates :content, :stars, presence: true
   validates_length_of :content, minimum: 20, allow_blank: true
+  validates :reviewer, uniqueness: { scope: :reviewed, message: 'You have already reviewed this user'}
 end

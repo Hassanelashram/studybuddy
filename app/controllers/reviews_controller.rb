@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
     @review.reviewed = @user
     # authorize @review
     unless @review.save
-    flash[:notice] = 'pls review ur review'
+    flash[:alert] = 'Something went wrong, could not create review'
     end
     redirect_to profile_path(@user)
 
