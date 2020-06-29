@@ -1,56 +1,57 @@
-<div class="container mt-5">
-  <div class="row">
-    <div class="col-8">
+<div style="box-shadow: 0 0 15px rgba(0,0,0,0.2);" class="container bg-light">
+  <div class="container my-5 pb-5">
+    <div class="d-flex flex-column messages" id="messages">
       <% @messages.each do |message| %>
-      <% if message.user == current_user %>
-      <div class="message text-right">
-        <div class="message--header">
-          <span class="message--author">
-            <%= message.user.full_name %>
-          </span>
-          <span class="message--time">
-            <%= message.message_time %>
-          </span>
-        </div>
-        <div class="message--text">
-          <% message.body.lines.each do |line| %>
-          <p><%= line %></p>
-          <% end %>
-        </div>
-      </div>
-      <% else %>
-      <div class="message">
-        <div class="message--header">
-          <span class="message--author">
-            <%= message.user.full_name %>
-          </span>
-          <span class="message--time">
-            <%= message.message_time %>
-          </span>
-        </div>
-        <div class="message--text">
-          <% message.body.lines.each do |line| %>
-          <p><%= line %></p>
-          <% end %>
-        </div>
-      </div>
+        <% if message.user == current_user %>
+          <div class="message text-right p-3 mb-2 right">
+
+            <div class="message--author">
+              <%= message.user.full_name %>
+            </div>
+            <div class="message--text">
+              <% message.body.lines.each do |line| %>
+                <p><%= line %></p>
+              <% end %>
+            </div>
+            <span class="message--time">
+              <%= message.message_time %>
+            </span>
+          </div>
+        <% else %>
+
+          <div class="message p-3 mb-2">
+
+            <div class="message--author">
+              <%= message.user.full_name %>
+            </div>
+
+
+            <div class="message--text">
+              <% message.body.lines.each do |line| %>
+                <p><%= line %></p>
+              <% end %>
+            </div>
+            <span class="message--time">
+              <%= message.message_time %>
+            </span>
+          </div>
+        <% end %>
       <% end %>
-      <% end %>
-      </div>
     </div>
 
 
-  <%= simple_form_for([@chat, @message]) do |f|%>
-  <div class="row">
-    <div class="col-8">
-      <%= f.input :body %>
-    </div>
-    <div class="col mt-5">
-      <%= f.submit class: "btn btn-flat"%>
-    </div>
+
+    <%= simple_form_for([@chat, @message]) do |f|%>
+      <div class="d-flex align-items-center mt-5">
+        <%= f.input :body, label: false, placeholder: "Type your message" %>
+
+
+        <%= f.submit class: "btn btn-flat w-25" %>
+      </div>
+
+    <% end %>
   </div>
-  <% end %>
 </div>
 
-
+<script>var element = document.getElementById("messages"); element.scrollTop = element.scrollHeight;</script>
 
