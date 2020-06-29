@@ -8,13 +8,15 @@ export default class extends Controller {
     .then(response => response.json())
     .then(({subjects}) => {
       const html = subjects.map(name => this.renderSuggestion(name)).join('')
-      console.log(subjects)
       this.suggestionsTarget.innerHTML = html
     })
   }
 
   renderSuggestion(name) {
-    return `<li data-action="click->suggestion#visit" data-controller="suggestion">${name}</li>`
+    return `
+    <li class='p-2' data-action="click->suggestion#visit" data-controller="suggestion">
+     <img width='25px' src="https://image.flaticon.com/icons/svg/106/106430.svg">${name}
+    </li>`
   }
 
   get query() {

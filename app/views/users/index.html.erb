@@ -3,7 +3,7 @@
     <form action="/results">
       <div class="search-group">
         <div class="">
-          <input placeholder="programming" autocomplete="off" data-target='autocomplete.input' data-action="keyup->autocomplete#suggest" type="text" name="query" id="search" value="<%= params[:query] %>">
+          <input placeholder="Search for a subject" autocomplete="off" data-target='autocomplete.input' data-action="keyup->autocomplete#suggest" type="text" name="query" id="search" value="<%= params[:query] %>">
           <ul data-target='autocomplete.suggestions' id="display-sugg" class="">
           </ul>
         </div>
@@ -29,20 +29,43 @@
       <%= link_to 'In my city', results_path(request.params.merge(city: current_user.location))   %>
       <% end %>
     </div>
-    <div class="col text-right p-3">
-      <div class="btn-group dropleft">
-        <i data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"class="fas fa-filter"></i>
-        <div class="dropdown-menu">
-          <%= link_to 'Lowest Rates', root_url, class: 'dropdown-item'  %>
-          <a class="dropdown-item" href="#">Lowest rates</a>
-        <a class="dropdown-item" href="#">Highest Ratings</a>
-        <a class="dropdown-item" href="#">New members</a>
+    <div style="display: flex; justify-content: space-around;" class="col text-right p-3">
+      <div class="dropdown">
+        <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Languages
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <% User.languages_from_search(@users).each do |language| %>
+            <%= link_to language, results_path(request.params.merge(language: language)), class: 'dropdown-item'   %>
+          <% end %>
+  </div>
+</div>
+      <% if !params[:type] %>
+      <div class="dropdown">
+        <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Price
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <%= link_to 'Lowest first', results_path(request.params.merge(price: 'low_first')), class: 'dropdown-item'   %>
+          <%= link_to 'Highest first', results_path(request.params.merge(price: 'highest_first')), class: 'dropdown-item'   %>
         </div>
-      </div>
+</div>
+      <% end %>
     </div>
   </div>
 
   <div class="row my-4">
+    <% if  params[:query].blank? || @users.count == 0 %>
+        <h4 class="col-12 text-center">
+          <% if params[:query] == '' %>
+            Please be sure to search for at least one subject
+          <% else %>
+           Looks like we couldn't find anything for <strong><%= params[:query] if present? %></strong> </h4>
+           <% end %>
+        <div class="col-12 text-center my-5">
+          <img src="https://image.flaticon.com/icons/svg/2353/2353678.svg" width="200" alt="">
+        </div>
+    <% else %>
     <% @users.each do |u| %>
         <div class="col-10 my-2 mx-auto">
           <div class="card-user">
@@ -56,8 +79,13 @@
                 <%= link_to 'Get help', profile_path(u), class: 'btn btn-flat mt-4' %>
               </div>
               <div class="card-right ml-4">
-                <h5><%= u.full_name  %></h5>
-                <h5><%= u.average_ratings if u.received_reviews.present? %></h5>
+                <h3> <strong><%= u.full_name  %></strong> </h3>
+                <h5> <% if u.received_reviews.present? %>
+                      <i class="fas fa-star" style="color: #ffcd3c"></i>
+                      <%= u.average_ratings %></h5>
+                      <% else %>
+                      <p>No ratings yet</p>
+                      <% end %>
                 <% u.teaching_subjects.each do |s| %>
                 <div class="tag"><%= s.name %></div>
                 <% end %>
@@ -76,10 +104,18 @@
               <p><img src="https://image.flaticon.com/icons/svg/3094/3094812.svg" width="30" alt="">
                 <%= u.received_reviews.count %>
               </p>
+              <% if u.price.present? %>
+<p>
+                <img src="https://image.flaticon.com/icons/svg/3050/3050241.svg" width="30" alt="">
+              <%= u.price %> euros / Hour
+              </p>
+              <% end %>
+
 
             </div>
           </div>
         </div>
+        <% end %>
         <% end %>
   </div>
 
