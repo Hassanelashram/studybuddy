@@ -1,0 +1,27 @@
+
+.btn {
+  padding: 8px 24px;
+  border-radius: $border-radius-lg;
+}
+
+.btn-flat {
+  color: white;
+  background: $green;
+  transition: background 0.3s ease;
+  &:hover{
+    background: $dark-green;
+    transition: background 0.3s ease;
+  }
+}
+
+.btn-ghost {
+  color: $gray;
+  border: 2px solid $gray;
+  background-color: transparent;
+  transition: all 0.3s ease;
+  &:hover{
+    transition: all 0.3s ease;
+    border-color: $green;
+  }
+}
+

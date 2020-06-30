@@ -1,5 +1,5 @@
 
-<div class="container ">
+
   <div class="mx-auto form-frame" style="width: 800px;">
 
 
@@ -50,13 +50,13 @@
 
   <h4> Let's add a profile picture!</h4>
   <%= f.input :photo, label: false, as: :file %>
-   <a href="#section-four" class="btn btn-flat">Next</a>
+   <a href="#section-four" class="btn btn-flat mb-5">Next</a>
 
-</div>
+
 
 <div class="card" style="width: 27rem, m-">
  <div class="container" style="width: 400px;">
-  <div class="form-inputs">
+  <div class="form-inputs pt-2">
 
 
 
@@ -77,17 +77,21 @@
                 input_html: { autocomplete: "current-password" } %>
   </div>
 
-  <div class="form-actions" class="btn btn-flat">
+  <div class="form-actions" class="btn btn-flat .w-100;">
     <%= f.submit "Update", class: "btn-flat" %>
+<br>
+<br>
+    <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+<%= link_to "Back", :back %>
+
 
   </div>
 <% end %>
 
+</div>
 <br>
 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
 
 
 </div>
