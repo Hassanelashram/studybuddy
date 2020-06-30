@@ -8,6 +8,7 @@
   font-size: 2rem;
   font-weight: bold;
   color: black;
+  margin-bottom: 20px;
 }
 
 .sub-heading {
@@ -19,6 +20,7 @@
   background-position: center;
   background-size: cover;
   position: relative;
+
   .container {
     position: absolute;
     top: 40%;
@@ -49,3 +51,35 @@ input {
     transform: translateY(-50%);
   }
 }
+
+.color1 {
+  background: $green;
+}
+
+.color2 {
+  background: $blue;
+}
+
+.home-card {
+  background: white;
+  border-radius: 10px;
+  padding: 10px;
+  width: 100%;
+  margin-left: 10px;
+}
+
+.style_img_home {
+  width: 250px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
