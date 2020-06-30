@@ -1,43 +1,120 @@
 <div class="container my-5">
   <div class="row">
-    <div class="col-lg-4 col-md-6 col-sm-12 text-center">
+    <div class="col-lg-6 col-md-6 col-sm-12 text-center">
       <div class="profile-box">
         <% if @user.photo.attached? %>
           <%= cl_image_tag @user.photo.key, crop: :thumb, gravity: :face, width: 120, height: 120, class: "rounded-circle dropdown-toggle", id: "navbarDropdown"  %>
         <% else %>
           <img src="https://image.flaticon.com/icons/svg/847/847969.svg" width="120" alt="">
         <% end %>
-        <h4><%= @user.full_name %></h4>
+        <h4 class="my-3"> <strong><%= @user.full_name %></strong> </h4>
+          <hr style="background-color: black; width: 50px;">
           <% @user.teaching_subjects.each do |s| %>
             <div class="tag"><%= s.name %></div>
           <% end %>
-          <hr>
-          <div class="extra-info text-left">
-            <p>
-              <img src="https://image.flaticon.com/icons/svg/3068/3068550.svg" width="30" alt="">
-              <%= @user.language %>
-            </p>
-            <p><img src="https://image.flaticon.com/icons/svg/3014/3014764.svg" width="30" alt="">
-            <%= @user.location %>
-            </p>
-            <p><img src="https://image.flaticon.com/icons/svg/3094/3094812.svg" width="30" alt="">
-            <%= @reviews.count %> <%= "review".pluralize(@reviews.count) %> (<%= @user.average_ratings %>)
-            </p>
-            <% if @user.price.present? %>
-            <p><img src="https://image.flaticon.com/icons/svg/3050/3050241.svg" width="30" alt="">
-              <%= @user.price %> euros / Hour
-            </p>
-            <% end %>
-            <hr>
-
-            <% if @user.teaching_subjects.present? %>
+          <div class="extra-info my-4">
+            <div class="d-flex justify-content-center">
+              <p> <i class="fas fa-language"></i> <%= @user.language %></p>
+              <p class="ml-5"> <i class="fas fa-map-marker-alt"></i> <%= @user.location %></p>
+            </div>
+            <div class="d-flex justify-content-center">
+              <p >
+                <% if @user.price.present? %>
+                  <i class="fas fa-euro-sign"></i> <%= @user.price %>/Hour</p>
+               <% end %>
+              <p class="ml-5">
+                <i class="far fa-star"></i> <%= @user.average_ratings if @user.received_reviews.present?%> (<%= @user.received_reviews.count %> reviews)</p>
+            </div>
+            </div>
+            <hr style="background-color: black; width: 50px;">
+            <div class="buttons">
+              <% if @user.teaching_subjects.present? %>
               <!-- Button trigger modal -->
-              <button type="button" class="btn btn-danger space1" data-toggle="modal" data-target="#staticBackdrop" <%= 'disabled' unless user_signed_in? %>>
-                Request Meeting
-              </button>
+              <button type="button" class="btn btn-flat my-2" data-toggle="modal" data-target="#staticBackdrop" <%= 'disabled' unless user_signed_in? %>>
+                Book a session
+              </button> <br>
+              <%= link_to 'Message', chats_path(sender_id: current_user, recipient_id: @user), method: :post, class: 'btn btn-ghost' %>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-ghost" data-toggle="modal" data-target="#staticBackdrop2" <%= 'disabled' unless user_signed_in? %>>
+              Review
+            </button>
+            <% end %>
+            </div>
 
-              <!-- Modal -->
-              <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop2" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Review User</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <%= render "reviews/form" %>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+      </div>
+
+
+
+    </div>
+    <div class="col-md-6 col-sm-12">
+      <div class="descrption">
+        <h2 class="heading">About me</h2>
+        <p><%= @user.bio %></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="container">
+    <div class="row">
+        <h2 class="sub-heading"><%= @user.name %>'s reviews</h2>
+        <% if @user.received_reviews.present? %>
+          <% @user.received_reviews.each do |r| %>
+            <div class="col-12">
+              <div class="review-card">
+                <div class="top d-flex justify-content-between">
+                  <div class="left">
+                    <% if r.reviewer.photo.attached? %>
+                      <%= cl_image_tag r.reviewer.photo.key %>
+                    <% else %>
+                        <img src="https://image.flaticon.com/icons/svg/847/847969.svg" width="80" alt="">
+                    <% end %>
+                    <strong><%= r.reviewer.full_name %></strong>
+                  </div>
+                  <div class="right">
+                      <% r.stars.times do %>
+                        <i class="far fa-star" style="color: red"></i>
+                      <% end %>
+                      <p style="color: lightgray"><%= time_ago_in_words(r.created_at)%> ago</p>
+                  </div>
+                </div>
+                <div class="bottom mt-2">
+                  <%= r.content %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+          <p>No Reviews yet</p>
+        <% end %>
+  </div>
+  </div>
+
+
+
+
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
@@ -70,63 +147,6 @@
                   </div>
                 </div>
               </div>
-            <% end %>
-
-            <%= link_to 'Message', chats_path(sender_id: current_user, recipient_id: @user), method: :post, class: 'btn btn-flat space' %>
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-flat space" data-toggle="modal" data-target="#staticBackdrop2" <%= 'disabled' unless user_signed_in? %>>
-              Review
-            </button>
-
-            <!-- Modal -->
-            <div class="modal fade" id="staticBackdrop2" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Review User</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <%= render "reviews/form" %>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-      </div>
-
-
-
-    </div>
-    <div class="col-md-6 col-sm-12">
-      <div class="descrption">
-        <h2 class="heading">About me</h2>
-        <p><%= @user.bio %></p>
-      </div>
-      <div class="reviews">
-        <h2 class="heading">Reviews</h2>
-        <% if @user.received_reviews.present? %>
-          <% @user.received_reviews.each do |r| %>
-          <h4 class="sub-heading"><%= r.reviewer.full_name %> · <% r.stars.times do %>
-            <i class="fas fa-star" style="color: #ffcd3c"></i>
-          <% end %> </h4>
-          <p><%= r.content %></p>
-          <hr>
-          <% end %>
-        <% else %>
-          <p>No Reviews (Yet)</p>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
-
-
 
 
 

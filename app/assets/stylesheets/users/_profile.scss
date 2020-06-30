@@ -11,16 +11,22 @@ font-size: 12px;
 .profile-box{
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
   padding: 10px;
-
+  border-radius: 10px;
+  background-color: white;
+  i {
+    color: red;
+  }
   // .extra-info {
   //   display: flex;
   //   justify-content: space-between;
   // }
 }
 
-.space {
-  margin: 5px;
-  width: 150px;
+.review-card {
+  background-color: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  padding: 10px 20px;
+  border-radius: 5px;
 }
 
 .space1 {
