@@ -7,7 +7,7 @@
       <div class="chat-box my-1">
         <div class="left">
           <% if c.other_user(current_user).photo.attached? %>
-            <%= cl_image_tag c.other_user(current_user).photo.key %>
+            <%= cl_image_tag c.other_user(current_user).photo.key, crop: :thumb, gravity: :face, width: 120, height: 120, class: "rounded-circle dropdown-toggle" %>
           <% else %>
             <img src="https://image.flaticon.com/icons/svg/847/847969.svg" width="80" alt="">
           <% end %>
