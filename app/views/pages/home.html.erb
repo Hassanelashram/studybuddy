@@ -1,4 +1,4 @@
-<div class="banner" style="height: 500px; background-image: linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1497493292307-31c376b6e479?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80)">
+<div class="banner" style="height: 800px; background-image: linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1495465798138-718f86d1a4bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80)">
   <div class="container ">
     <h2 class="main-heading">Study Better, Study Faster</h2>
     <h5 style="color: white;" class="sub-heading">Find a buddy/mentor to study with</h5>
@@ -9,29 +9,64 @@
     </form>
   </div>
 </div>
+  <!-- <div class="container-fluid"> -->
 
-
-<div class="container">
-  <div class="row ">
-    <div class="col-sm-12 col-lg-6 my-5">
-      <h4 class="heading"> How does it work?</h4>
-      <p class="text-justify">Study buddy provides you with the option of finding an online student or mentor to assist you with your studies. At the same time it provides anyone with a certain skill set to provide their teaching services either as a student or a mentor.</p>
-      <p class="text-justify">The student to student option is a free service, whereas mentors charge a fee of their choice providing a one way teaching experience.</p>
-     <p class="text-justify">As a student, you can choose from a variety of academic fields by simply specifying your search in the search bar above and clicking ‘find a buddy’.</p>
-     <p class="text-justify">Equally as a mentor you can provide your service in any of these fields, or, should you not find the field you specialize in, you can contact us directly on the following email address (example@example.com) and propose the subject you wish to teach. We will eagerly check out your proposition and get back to you within 24 hours.</p>
-     <p class="text-justify">Interested? Create your Study Budd-e online profile and start your learning or earning experience today!</p>
-      <a class="btn btn-flat" href="#">Try for free</a>
+   <div class="row no-gutters p-5">
+      <div class="col-sm-12 col-lg my-5">
+        <h4 class="heading">Choose between hundreds of Mentors!</h4>
+        <p class="text-justify">Find the mentor that best suits your requirements. Check out their profile based on previous reviews and choose a date and time for your personalized teaching session! </p>
+        <a class="btn btn-flat" href="#">Choose between hundreds of Mentors</a>
+      </div>
+      <div class="col-sm-12 col-lg my-5">
+        <%= image_tag "home1.png", :class => "style_img_home" %>
+      </div>
     </div>
-    <div class="col-sm-12 col-lg text-center my-5">
-      <img width="250" src="https://image.flaticon.com/icons/svg/3108/3108233.svg" alt="">
+
+    <div class="row no-gutters color1 p-5">
+      <h4 class="heading col-12 text-center">
+          Meet the mentors of the week
+        </h4>
+      <div class="container d-flex">
+
+        <div class="col-4">
+          <div class="home-card d-flex">
+              <div>
+                <img src="https://image.flaticon.com/icons/svg/847/847969.svg" width="80" class="rounded-circle dropdown-toggle" style="margin-right: 10px; ">
+              </div>
+              <div>
+                <h4>James Bond</h4>
+                <div class="tag">Math</div>
+              </div>
+            </div>
+        </div>
+        <div class="col-4">
+          <div class="home-card d-flex">
+              <div>
+                <img src="https://image.flaticon.com/icons/svg/847/847969.svg" width="80" class="rounded-circle dropdown-toggle" style="margin-right: 10px; ">
+              </div>
+              <div>
+                <h4>James Bond</h4>
+                <div class="tag">Math</div>
+              </div>
+            </div>
+        </div>
+        <div class="col">
+          <div class="home-card d-flex">
+              <div>
+                <img src="https://image.flaticon.com/icons/svg/847/847969.svg" width="80" class="rounded-circle dropdown-toggle" style="margin-right: 10px; ">
+              </div>
+              <div>
+                <h4>James Bond</h4>
+                <div class="tag">Math</div>
+              </div>
+            </div>
+        </div>
+      </div>
     </div>
-  </div>
 
-<hr>
-
-  <div class="row">
-    <div class="col-sm-12 col-lg-5 my-5">
-      <img width="250" src="https://image.flaticon.com/icons/svg/2904/2904810.svg" alt="">
+  <div class="row no-gutters p-5">
+    <div class="col-sm-12 col-lg-5 ">
+      <%= image_tag "home2.png", :class => "style_img_home" %>
     </div>
     <div class="col-sm-12 col-lg my-5">
       <h4 class="heading">Use your knowledge to earn money!</h4>
@@ -42,37 +77,25 @@
     </div>
   </div>
 
-<hr>
-
-  <div class="row">
-    <div class="col-sm-12 col-lg-5 my-5">
-      <h4 class="heading"> Most popular Fields</h4>
-      <p class="text-justify">Check out some of our most popular academic fields, or find more by specifying your field in the search bar at the top of the page and clicking ‘find a buddy’</p>
-    </div>
-    <div class="col-sm-12 col-lg text-center my-5">
-      <a class="btn btn-ghost" href="/results?query=programming">Programming</a>
-      <a class="btn btn-ghost" href="/results?query=ruby">Ruby</a>
-      <a class="btn btn-ghost" href="/results?query=german">German</a>
-      <a class="btn btn-ghost" href="/results?query=geography">Geography</a>
-      <a class="btn btn-ghost" href="/results?query=math">Math</a>
-      <a class="btn btn-ghost" href="/results?query=history">History</a>
-      <a class="btn btn-ghost" href="/results?query=english">English</a>
-      <a class="btn btn-ghost" href="/results?query=spanish">Spanish</a>
-      <a class="btn btn-ghost" href="/results?query=physics">Physics</a>
+  <div class="row no-gutters color2 p-5">
+    <div class="container">
+      <div class="col-12 text-center">
+        <h4 class="heading"> Most popular Fields</h4>
+        <p class="text-center">Check out some of our most popular academic fields, or find more by specifying your field in the search bar at the top of the page and clicking ‘find a buddy’</p>
+      </div>
+      <div class="col-sm-12 col-lg text-center my-5">
+        <div class="tag"> Math</div>
+        <div class="tag"> Math</div>
+        <div class="tag"> Math</div>
+        <div class="tag"> Math</div>
+        <div class="tag"> Math</div>
+        <div class="tag"> Math</div>
+        <div class="tag"> Math</div>
+      </div>
     </div>
   </div>
+<!-- </div> -->
 
-<hr>
 
-  <div class="row">
-    <div class="col-sm-12 col-lg-5 my-5">
-      <img width="250" src="https://image.flaticon.com/icons/svg/2883/2883841.svg" alt="">
-    </div>
-    <div class="col-sm-12 col-lg my-5">
-      <h4 class="heading">Choose between hundreds of Mentors!</h4>
-      <p class="text-justify">Find the mentor that best suits your requirements. Check out their profile based on previous reviews and choose a date and time for your personalized teaching session! </p>
-      <a class="btn btn-flat" href="#">Choose between hundreds of Mentors</a>
-    </div>
-  </div>
-</div>
+
 
