@@ -64,8 +64,8 @@ end
 picture1 = URI.open("https://images.unsplash.com/photo-1586297098710-0382a496c814?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80")
 
 user1 = User.create!(
-    name: Faker::Name.first_name,
-    surname: Faker::Name.last_name,
+    name: "John",
+    surname: "Parker",
     email: Faker::Internet.email,
     password: '123456',
     price: rand(5...15),
@@ -81,8 +81,8 @@ Subject.all.sample(rand(1...2)).each { |s| user1.teaching_subjects.create(subjec
 picture2 = URI.open("https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2094&q=80")
 
 user2 = User.create!(
-    name: Faker::Name.first_name,
-    surname: Faker::Name.last_name,
+    name: "Susan",
+    surname: "Belling",
     email: Faker::Internet.email,
     password: '123456',
     price: rand(5...15),
@@ -98,8 +98,8 @@ Subject.all.sample(rand(1...2)).each { |s| user2.teaching_subjects.create(subjec
 picture3 = URI.open("https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80")
 
 user3 = User.create!(
-    name: Faker::Name.first_name,
-    surname: Faker::Name.last_name,
+    name: "Michael",
+    surname: "Johnson",
     email: Faker::Internet.email,
     password: '123456',
     price: rand(5...15),
@@ -115,8 +115,8 @@ Subject.all.sample(rand(1...2)).each { |s| user3.teaching_subjects.create(subjec
 picture4 = URI.open("https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80")
 
 user4 = User.create!(
-    name: Faker::Name.first_name,
-    surname: Faker::Name.last_name,
+    name: "Bob",
+    surname: "Gelding",
     email: Faker::Internet.email,
     password: '123456',
     price: rand(5...15),
@@ -131,12 +131,12 @@ Subject.all.sample(rand(1...2)).each { |s| user4.teaching_subjects.create(subjec
 picture5 = URI.open("https://images.unsplash.com/photo-1554780336-390462301acf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80")
 
 user5 = User.create!(
-    name: Faker::Name.first_name,
-    surname: Faker::Name.last_name,
+    name: "Joanna",
+    surname: "Peelsly",
     email: Faker::Internet.email,
     password: '123456',
     price: rand(5...15),
-    bio: "I teach and learn...and I will continue to do so all my life...until the day the lord calls me out and says it's enough",
+    bio: "I teach and learn...and I will continue to do so all my life...until the day the lord calls me out and says it's enough.",
     location: Faker::Address.state,
     language: @languages.sample)
 
@@ -148,8 +148,8 @@ Subject.all.sample(rand(1...2)).each { |s| user5.teaching_subjects.create(subjec
 picture6 = URI.open("https://images.unsplash.com/photo-1584999734482-0361aecad844?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80")
 
 user6 = User.create!(
-    name: Faker::Name.first_name,
-    surname: Faker::Name.last_name,
+    name: "Francisco",
+    surname: "Soriano",
     email: Faker::Internet.email,
     password: '123456',
     price: rand(5...15),
@@ -165,8 +165,8 @@ Subject.all.sample(rand(1...3)).each { |s| user6.learning_subjects.create(subjec
 picture7 = URI.open("https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80")
 
 user7 = User.create!(
-    name: Faker::Name.first_name,
-    surname: Faker::Name.last_name,
+    name: "Fabianna",
+    surname: "Delupo",
     email: Faker::Internet.email,
     password: '123456',
     price: rand(5...15),
@@ -182,8 +182,8 @@ Subject.all.sample(rand(1...3)).each { |s| user7.learning_subjects.create(subjec
 picture8 = URI.open("https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80")
 
 user8 = User.create!(
-    name: Faker::Name.first_name,
-    surname: Faker::Name.last_name,
+    name: "Vivan",
+    surname: "Dirupo",
     email: Faker::Internet.email,
     password: '123456',
     price: rand(5...15),
@@ -200,8 +200,8 @@ Subject.all.sample(rand(1...2)).each { |s| user8.teaching_subjects.create(subjec
 picture9 = URI.open("https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80")
 
 user9 = User.create!(
-    name: Faker::Name.first_name,
-    surname: Faker::Name.last_name,
+    name: "Giuseppe",
+    surname: "Pantani",
     email: Faker::Internet.email,
     password: '123456',
     price: rand(5...15),
@@ -218,8 +218,8 @@ Subject.all.sample(rand(1...2)).each { |s| user9.teaching_subjects.create(subjec
 picture10 = URI.open("https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80")
 
 user10 = User.create!(
-    name: Faker::Name.first_name,
-    surname: Faker::Name.last_name,
+    name: "Juliana",
+    surname: "Martinez",
     email: Faker::Internet.email,
     password: '123456',
     price: rand(5...15),
@@ -235,8 +235,8 @@ Subject.all.sample(rand(1...2)).each { |s| user10.teaching_subjects.create(subje
 picture11 = URI.open("https://images.unsplash.com/photo-1543096222-72de739f7917?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80")
 
 user11 = User.create!(
-    name: Faker::Name.first_name,
-    surname: Faker::Name.last_name,
+    name: "Linda",
+    surname: "Benucci",
     email: Faker::Internet.email,
     password: '123456',
     price: rand(5...15),
@@ -250,8 +250,8 @@ Subject.all.sample(rand(1...2)).each { |s| user11.teaching_subjects.create(subje
 picture12 = URI.open("https://images.unsplash.com/photo-1548544149-4835e62ee5b3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80")
 
 user12 = User.create!(
-    name: Faker::Name.first_name,
-    surname: Faker::Name.last_name,
+    name: "Paul",
+    surname: "Watson",
     email: Faker::Internet.email,
     password: '123456',
     price: rand(5...15),
@@ -266,8 +266,8 @@ Subject.all.sample(rand(1...2)).each { |s| user12.teaching_subjects.create(subje
 picture13 = URI.open("https://images.unsplash.com/photo-1551069613-1904dbdcda11?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=956&q=80")
 
 user13 = User.create!(
-    name: Faker::Name.first_name,
-    surname: Faker::Name.last_name,
+    name: "Shauna",
+    surname: "Jordan",
     email: Faker::Internet.email,
     password: '123456',
     price: rand(5...15),
@@ -280,11 +280,11 @@ Subject.all.sample(rand(1...2)).each { |s| user13.teaching_subjects.create(subje
 
 
 
-picture14 = URI.open("https://images.unsplash.com/photo-1568967729548-e3dbad3d37e0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80")
+picture14 = URI.open("https://images.unsplash.com/photo-1549351236-caca0f174515?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80")
 
 user14 = User.create!(
-    name: Faker::Name.first_name,
-    surname: Faker::Name.last_name,
+    name: "Anne",
+    surname: "Peters",
     email: Faker::Internet.email,
     password: '123456',
     bio: "Help me...help you! Together we can make it happen :)",
@@ -298,8 +298,8 @@ Subject.all.sample(rand(1...3)).each { |s| user14.learning_subjects.create(subje
 picture15 = URI.open("https://images.unsplash.com/photo-1568967729548-e3dbad3d37e0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80")
 
 user15 = User.create!(
-    name: Faker::Name.first_name,
-    surname: Faker::Name.last_name,
+    name: "Beate",
+    surname: "Franklin",
     email: Faker::Internet.email,
     password: '123456',
     bio: "I'm so lost in my field. Any help is appreciated!! I want to reach my objective and am willing to give all my heart and soul in order to reach it. Can you help me?",
@@ -314,8 +314,8 @@ Subject.all.sample(rand(1...3)).each { |s| user15.learning_subjects.create(subje
 picture16 = URI.open("https://images.unsplash.com/photo-1541647376583-8934aaf3448a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80")
 
 user16 = User.create!(
-    name: Faker::Name.first_name,
-    surname: Faker::Name.last_name,
+    name: "John",
+    surname: "Bobbit",
     email: Faker::Internet.email,
     password: '123456',
     bio: "I'm last in my class :( I need to receive some serious help. I'm quite desperate!",
@@ -329,8 +329,8 @@ Subject.all.sample(rand(1...3)).each { |s| user16.learning_subjects.create(subje
 picture17 = URI.open("https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80")
 
 user17 = User.create!(
-    name: Faker::Name.first_name,
-    surname: Faker::Name.last_name,
+    name: "Rachel",
+    surname: "Vilanda",
     email: Faker::Internet.email,
     password: '123456',
     bio: "I need to pass my exams...am tired of repeating. Please somebody help me!!",
@@ -345,8 +345,8 @@ Subject.all.sample(rand(1...3)).each { |s| user17.learning_subjects.create(subje
 picture18 = URI.open("https://images.unsplash.com/photo-1544348817-5f2cf14b88c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80")
 
 user18 = User.create!(
-    name: Faker::Name.first_name,
-    surname: Faker::Name.last_name,
+    name: "Aaron",
+    surname: "Stephens",
     email: Faker::Internet.email,
     password: '123456',
     bio: "I'm struggling so much with my course material. I need someone to help me out. I'd love to be able to bounce my knowledge of someone who can fill in the blanks.",
@@ -360,8 +360,8 @@ Subject.all.sample(rand(1...3)).each { |s| user18.learning_subjects.create(subje
 picture19 = URI.open("https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80")
 
 user19 = User.create!(
-    name: Faker::Name.first_name,
-    surname: Faker::Name.last_name,
+    name: "George",
+    surname: "Fowler",
     email: Faker::Internet.email,
     password: '123456',
     bio: "I'm struggling so much with my course material. I need someone to help me out. I'd love to be able to bounce my knowledge of someone who can fill in the blanks.",
@@ -376,8 +376,8 @@ Subject.all.sample(rand(1...3)).each { |s| user19.learning_subjects.create(subje
 picture20 = URI.open("https://images.unsplash.com/photo-1542131596-dea5384842c7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80")
 
 user20 = User.create!(
-    name: Faker::Name.first_name,
-    surname: Faker::Name.last_name,
+    name: "Wanda",
+    surname: "Beckinson",
     email: Faker::Internet.email,
     password: '123456',
     bio: "I need some help in order to pass my exams at the end of the term. I'll be needing at least 10 to 15 hours of intensive courses.",
