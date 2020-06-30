@@ -14,6 +14,8 @@
   }
 }
 
+
+
 .btn-ghost {
   color: $gray;
   border: 2px solid $gray;
@@ -25,3 +27,6 @@
   }
 }
 
+.active-btn {
+  border-color: $green;
+}
