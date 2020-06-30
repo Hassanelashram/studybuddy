@@ -82,7 +82,7 @@
         <% if @user.received_reviews.present? %>
           <% @user.received_reviews.each do |r| %>
             <div class="col-12">
-              <div class="review-card">
+              <div class="review-card my-4">
                 <div class="top d-flex justify-content-between">
                   <div class="left">
                     <% if r.reviewer.photo.attached? %>
@@ -93,8 +93,8 @@
                     <strong><%= r.reviewer.full_name %></strong>
                   </div>
                   <div class="right">
-                      <% r.stars.times do %>
-                        <i class="far fa-star" style="color: red"></i>
+                      <% 5.times do |x| %>
+                        <i class="far fa-star" style="color: <%= x < r.stars ? 'red' : 'black'  %>;"></i>
                       <% end %>
                       <p style="color: lightgray"><%= time_ago_in_words(r.created_at)%> ago</p>
                   </div>
