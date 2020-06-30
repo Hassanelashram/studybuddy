@@ -39,6 +39,7 @@ class UsersController < ApplicationController
   end
 
   def autocomplete
+
     if params[:query].present?
       subjects = Subject.where("name ILIKE ?", "#{params[:query]}%").limit(4)
     else

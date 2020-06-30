@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate_user!, except: [:index, :profile]
+  before_action :authenticate_user!, except: [:index, :profile, :autocomplete]
   before_action :configure_permitted_parameters, if: :devise_controller?
   include Pundit
 
