@@ -38,7 +38,7 @@
           <div class="home-card d-flex">
               <div>
                 <% if mentor.photo.attached? %>
-                  <%= cl_image_tag @user.photo.key, crop: :thumb, gravity: :face, width: 100, height: 100, class: "rounded-circle dropdown-toggle", id: "navbarDropdown"  %>
+                  <%= cl_image_tag mentor.photo.key, crop: :thumb, gravity: :face, width: 100, height: 100, class: "rounded-circle dropdown-toggle", id: "navbarDropdown"  %>
                 <% else %>
                   <img src="https://image.flaticon.com/icons/svg/847/847969.svg" width="100" alt="">
                 <% end %>
