@@ -6,8 +6,21 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.mentor = @user
     @booking.student = current_user
+    @booking.total = @user.price * @booking.duration
     if @booking.save
-      redirect_to dashboard_path
+      session = Stripe::Checkout::Session.create(
+        payment_method_types: ['card'],
+        line_items: [{
+        name: "Booking for #{@user.full_name}",
+        amount: @booking.total_cents,
+        currency: 'eur',
+        quantity: 1
+        }],
+        success_url: allbookings_url,
+        cancel_url: allbookings_url
+      )
+        @booking.update(checkout_session_id: session.id)
+        redirect_to new_booking_payment_path(@booking)
     else
       redirect_to @user
       flash[:danger] = 'please select Booking date'
@@ -37,6 +50,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date)
+    params.require(:booking).permit(:start_date, :duration)
   end
 end

@@ -17,8 +17,8 @@
             <tr>
               <td> <%= link_to booking.student.full_name, profile_path(booking.student)  %></td>
               <td><%= booking.start_date.month %>/<%= booking.start_date.day %>/<%= booking.start_date.year %></td>
-              <td><%= booking.end_date.hour - booking.start_date.hour %> </td>
-              <td><%= booking.mentor.price * (booking.end_date.hour - booking.start_date.hour) %></td>
+             <td><%= booking.duration %> </td>
+              <td><%= humanized_money_with_symbol(booking.total) %></td>
               <td>Status</td>
           <% end %>
 

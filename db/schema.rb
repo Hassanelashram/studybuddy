@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_25_111424) do
+ActiveRecord::Schema.define(version: 2020_07_01_083701) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,8 +42,10 @@ ActiveRecord::Schema.define(version: 2020_06_25_111424) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.datetime "start_date"
-    t.datetime "end_date"
     t.integer "status", default: 0
+    t.integer "total_cents", default: 0, null: false
+    t.string "checkout_session_id"
+    t.integer "duration", default: 1, null: false
     t.index ["mentor_id", "student_id"], name: "index_bookings_on_mentor_id_and_student_id", unique: true
     t.index ["mentor_id"], name: "index_bookings_on_mentor_id"
     t.index ["student_id"], name: "index_bookings_on_student_id"
@@ -113,8 +115,8 @@ ActiveRecord::Schema.define(version: 2020_06_25_111424) do
     t.string "surname"
     t.text "bio"
     t.string "location"
-    t.integer "price"
     t.string "language"
+    t.integer "price_cents", default: 0, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
