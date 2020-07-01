@@ -21,7 +21,7 @@ class BookingsController < ApplicationController
   def update
     @booking.update(status: params[:status])
     @booking.save
-    redirect_to allbookings_path
+    redirect_to dashboard_path
     authorize @booking
   end
 
