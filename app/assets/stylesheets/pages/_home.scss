@@ -1,7 +1,7 @@
 .main-heading {
   font-size: 3.2rem;
   font-weight: bold;
-  color: white;
+  color: #1EDD88;
 }
 
 .heading {
@@ -29,10 +29,14 @@
 }
 
 input {
-    box-sizing: border-box;
+    outline: none;
     padding: 5px 20px;
     height: 40px;
   }
+
+input::-webkit-input-placeholder {
+  color: white;
+}
 
 .search_form {
   width: fit-content;

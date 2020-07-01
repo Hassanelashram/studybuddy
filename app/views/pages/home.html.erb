@@ -1,6 +1,6 @@
 
 <div class="banner" style="height: 800px; background-image: linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1495465798138-718f86d1a4bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80)">
-  <div class="container ">
+  <div class="container " data-controller="autocomplete">
 
     <h2 class="main-heading">Study Better, Study Faster</h2>
     <h5 style="color: white;" class="sub-heading">Find a buddy/mentor to study with</h5>
@@ -16,85 +16,73 @@
   <!-- <div class="container-fluid"> -->
 
    <div class="row no-gutters p-5">
-      <div class="col-sm-12 col-lg my-5">
+    <div class="container d-flex p-5">
+      <div>
         <h4 class="heading">Choose between hundreds of Mentors!</h4>
         <p class="text-justify">Find the mentor that best suits your requirements. Check out their profile based on previous reviews and choose a date and time for your personalized teaching session! </p>
-        <a class="btn btn-flat" href="#">Choose between hundreds of Mentors</a>
+          <%= link_to 'Get help now', results_path, class: 'btn btn-flat'  %>
       </div>
-      <div class="col-sm-12 col-lg my-5">
+      <div style="margin-left: 8rem;">
         <%= image_tag "home1.png", :class => "style_img_home" %>
       </div>
     </div>
+  </div>
 
-    <div class="row no-gutters color1 p-5">
-      <h4 class="heading col-12 text-center">
+    <div style="height: 400px;" class="row no-gutters color1 p-5">
+      <h4 style="color: white;" class="heading col-12 text-center">
           Meet the mentors of the week
         </h4>
       <div class="container d-flex">
-
+        <% @mentors.each do |mentor| %>
         <div class="col-4">
           <div class="home-card d-flex">
               <div>
-                <img src="https://image.flaticon.com/icons/svg/847/847969.svg" width="80" class="rounded-circle dropdown-toggle" style="margin-right: 10px; ">
+                <% if mentor.photo.attached? %>
+                  <%= cl_image_tag @user.photo.key, crop: :thumb, gravity: :face, width: 100, height: 100, class: "rounded-circle dropdown-toggle", id: "navbarDropdown"  %>
+                <% else %>
+                  <img src="https://image.flaticon.com/icons/svg/847/847969.svg" width="100" alt="">
+                <% end %>
               </div>
-              <div>
-                <h4>James Bond</h4>
-                <div class="tag">Math</div>
-              </div>
-            </div>
-        </div>
-        <div class="col-4">
-          <div class="home-card d-flex">
-              <div>
-                <img src="https://image.flaticon.com/icons/svg/847/847969.svg" width="80" class="rounded-circle dropdown-toggle" style="margin-right: 10px; ">
-              </div>
-              <div>
-                <h4>James Bond</h4>
-                <div class="tag">Math</div>
+              <div class="ml-4">
+                <h4> <%= link_to mentor.full_name, profile_path(mentor) %> </h4>
+                <div class="tag"><%= mentor.teaching_subjects.first.name %></div>
               </div>
             </div>
         </div>
-        <div class="col">
-          <div class="home-card d-flex">
-              <div>
-                <img src="https://image.flaticon.com/icons/svg/847/847969.svg" width="80" class="rounded-circle dropdown-toggle" style="margin-right: 10px; ">
-              </div>
-              <div>
-                <h4>James Bond</h4>
-                <div class="tag">Math</div>
-              </div>
-            </div>
-        </div>
+        <% end %>
       </div>
     </div>
 
   <div class="row no-gutters p-5">
-    <div class="col-sm-12 col-lg-5 ">
-      <%= image_tag "home2.png", :class => "style_img_home" %>
-    </div>
-    <div class="col-sm-12 col-lg my-5">
+    <div class="container d-flex p-5">
+      <div class="">
+        <%= image_tag "home2.png", :class => "style_img_home" %>
+      </div>
+    <div style="margin-left: 8rem;">
       <h4 class="heading">Use your knowledge to earn money!</h4>
       <p class="text-justify">Do you feel you have a superior academic level in a specific field? If so, why not provide your assistance to a struggling student in that same field? And yay…you can even make some money from it!</p>
     <p class="text-justify">Mentors don’t require a diploma in their field, so anyone that feels he or she has the skillset can provide their services as a mentor on Study Budd-e. Be aware however that the service is based on a review system. The more positive reviews, the better your chances of gaining a great Study Budd-e reputation and teaching more and more eager students.
     </p>
-      <a class="btn btn-flat" href="#">Become a Mentor</a>
+    <%= link_to 'Become a mentor', new_user_registration_path, class:'btn btn-flat' %>
     </div>
+    </div>
+
   </div>
 
   <div class="row no-gutters color2 p-5">
-    <div class="container">
+    <div class="container p-5">
       <div class="col-12 text-center">
-        <h4 class="heading"> Most popular Fields</h4>
-        <p class="text-center">Check out some of our most popular academic fields, or find more by specifying your field in the search bar at the top of the page and clicking ‘find a buddy’</p>
+        <h4 style="color: white;" class="heading"> Most popular Fields</h4>
+        <p style="color: white;"  class="text-center">Check out some of our most popular academic fields, or find more by specifying your field in the search bar at the top of the page and clicking ‘find a buddy’</p>
       </div>
       <div class="col-sm-12 col-lg text-center my-5">
-        <div class="tag"> Math</div>
-        <div class="tag"> Math</div>
-        <div class="tag"> Math</div>
-        <div class="tag"> Math</div>
-        <div class="tag"> Math</div>
-        <div class="tag"> Math</div>
-        <div class="tag"> Math</div>
+        <% Subject.all.each do |s| %>
+        <%= link_to "results?query=#{s.name}" do %>
+          <div class="tag p-3">
+            <%= s.name %>
+          </div>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>
