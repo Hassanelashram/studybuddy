@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  monetize :price_cents
   has_many :learning_subjects
   has_many :teaching_subjects
   has_many :received_bookings, foreign_key: :mentor_id, class_name: 'Booking'
@@ -51,12 +52,6 @@ class User < ApplicationRecord
   end
 
   def earnings
-    sum = 0
-    totals = []
-    self.received_bookings.each do |booking|
-      booking_total = booking.mentor.price * (booking.end_date.hour - booking.start_date.hour)
-      totals << booking_total
-    end
-    return totals.sum
+     self.received_bookings.sum(:total_cents)
   end
 end
