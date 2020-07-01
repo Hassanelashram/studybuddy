@@ -10,11 +10,60 @@
 }
 
 .profile-notification {
-  height: 100px;
-  background-image: linear-gradient(#74ebd5, #ACB6E5) ;
-  color: white;
+  height: 130px;
+  color: $dark-gray;
+  width: 80%;
+  margin: 0 auto;
+
 }
 
 .dashboard-section {
   height: 140px;
 }
+
+.box1 {
+  box-shadow: 0 0 25px rgba(0,0,0,0.2);
+  padding: 10px;
+  border-radius: 5px;
+  width: 150px;
+  height: 130px;
+  margin-top: 20px;
+}
+
+h10 {
+  font-size: 15px;
+}
+
+.col {
+  text-align: center;
+}
+
+.count {
+  margin-bottom: 0;
+}
+
+.dash1 {
+  margin-top: 50px;
+}
+
+.progress-bar {
+  background: $green;
+}
+
+#stat i{
+  color: $green;
+}
+
+#stat p {
+  font-size: 20px;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #666;
+  background-color: transparent;
+  border-color: $green;
+}
+
+
+
+
