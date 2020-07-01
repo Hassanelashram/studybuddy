@@ -21,8 +21,9 @@
   padding: 2px;
   transition: background 0.3s ease;
   &:hover{
-    background: #dee1e3;
+    border-color: $green;
     transition: background 0.3s ease;
+
   }
 }
 
