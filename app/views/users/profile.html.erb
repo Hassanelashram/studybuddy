@@ -32,13 +32,15 @@
               <!-- Button trigger modal -->
               <button type="button" class="btn btn-flat my-2" data-toggle="modal" data-target="#staticBackdrop" <%= 'disabled' unless user_signed_in? %>>
                 Book a session
-              </button> <br>
+              </button>
+              <% end %>
+               <br>
               <%= link_to 'Message', chats_path(sender_id: current_user, recipient_id: @user), method: :post, class: 'btn btn-ghost' %>
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-ghost" data-toggle="modal" data-target="#staticBackdrop2" <%= 'disabled' unless user_signed_in? %>>
               Review
             </button>
-            <% end %>
+
             </div>
 
 
