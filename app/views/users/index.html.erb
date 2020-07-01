@@ -22,6 +22,7 @@
                 Languages
               </a>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <%= link_to 'All languages', results_path(request.params.merge(language: '')), class: 'dropdown-item'   %>
                 <% User.languages_from_search(@users).each do |language| %>
                   <%= link_to language, results_path(request.params.merge(language: language)), class: 'dropdown-item'   %>
                 <% end %>
@@ -39,8 +40,12 @@
             </div>
           <% end %>
             <% if user_signed_in? %>
-          <i class="fas fa-compass ml-3 m-1"></i>
-           <%= link_to 'In my city', results_path(request.params.merge(city: current_user.location)), style: 'color: black'  %>
+              <i class="fas fa-compass ml-3 m-1"></i>
+              <% if params[:city].present? %>
+                <%= link_to 'Anywhere', results_path(request.params.merge(city: '')), style: 'color: black'  %>
+                <% else %>
+              <%= link_to 'In my city', results_path(request.params.merge(city: current_user.location)), style: 'color: black'  %>
+              <% end %>
            <% end %>
             </div>
         </div>
@@ -51,13 +56,10 @@
 
 <div class="container">
   <div class="row my-4">
-    <% if  params[:query].blank? || @users.count == 0 %>
+    <% if   @users.count == 0 %>
         <h4 class="col-12 text-center">
-          <% if params[:query] == '' %>
-            Please be sure to search for at least one subject
-          <% else %>
-           Looks like we couldn't find anything for <strong><%= params[:query] if present? %></strong> </h4>
-           <% end %>
+           Looks like we couldn't find any <%= params[:type] ? 'Student' : 'Mentor' %><%= " for #{params[:query]} " if params[:query].present? && params[:query] != '' %>
+           <%= "in #{params[:city]} " if present? %> </h4>
         <div class="col-12 text-center my-5">
           <img src="https://image.flaticon.com/icons/svg/2353/2353678.svg" width="200" alt="">
         </div>
