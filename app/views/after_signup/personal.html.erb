@@ -9,15 +9,18 @@
     </div>
   </div>
   <div class="row">
-    <h2 class="col-12 sub-heading text-center">Tell us about yourself?</h2>
+    <h2 class="col-8 mx-auto sub-heading">Tell us about yourself?</h2>
     <div class="col-8 mx-auto">
       <%= simple_form_for @user, url: wizard_path, method: :put do |f| %>
         <%=  f.input :bio, label: false, placeholder: 'Description' %>
         <%=  f.input :location,label: false, placeholder: 'What city do you live in?' %>
-        <%=  f.input :language, label: false, collection: ['English', 'French', 'Spanish', 'German'] %>
-        <h5>Maybe a nice picture ?</h5>
+
+        <h2 class="sub-heading">Prefered language?</h2>
+        <%=  f.input :language, label: false, collection: ['English', 'French', 'Spanish', 'German'], include_blank: false %>
+
+        <h2 class="sub-heading ">Maybe a nice picture ?</h2>
         <%= f.input :photo, as: :file, label: false %>
-        <%= f.submit "Next", class: 'btn btn-flat' %>
+        <%= f.submit "Next", class: 'btn btn-flat text-center' %>
       <% end %>
     </div>
   </div>
