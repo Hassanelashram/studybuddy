@@ -20,9 +20,9 @@ class UsersController < ApplicationController
 
     if params[:price].present?
       if params[:price] == 'low_first'
-      @users = @users.order(price: :asc)
+      @users = @users.order(price_cents: :asc)
     else
-      @users = @users.order(price: :desc)
+      @users = @users.order(price_cents: :desc)
     end
     end
     # if query.present? && params[:city].present? && params[:type] == 'student'
