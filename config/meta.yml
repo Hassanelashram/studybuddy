@@ -1,0 +1,7 @@
+# config/meta.yml
+
+meta_product_name: "study buddy"
+meta_title: "study buddy - Study Better, Study Faster"
+meta_description: "Find the mentor that best suits your requirements. Check out their profile based on previous reviews and choose a date and time for your personalized teaching session!"
+meta_image: "pydlogo.gif" # should exist in `app/assets/images/`
+twitter_account: ""   # required for Twitter Cards
