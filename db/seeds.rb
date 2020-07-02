@@ -109,7 +109,6 @@ user3 = User.create!(
 
 user3.photo.attach(io: picture3, filename: "avatar.png", content_type: "image/png" )
 Subject.all.sample(rand(1...3)).each { |s| user3.learning_subjects.create(subject: s)}
-Subject.all.sample(rand(1...2)).each { |s| user3.teaching_subjects.create(subject: s)}
 
 
 picture4 = URI.open("https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80")
@@ -142,7 +141,6 @@ user5 = User.create!(
 
 user5.photo.attach(io: picture5, filename: "avatar.png", content_type: "image/png" )
 Subject.all.sample(rand(1...3)).each { |s| user5.learning_subjects.create(subject: s)}
-Subject.all.sample(rand(1...2)).each { |s| user5.teaching_subjects.create(subject: s)}
 
 
 picture6 = URI.open("https://images.unsplash.com/photo-1584999734482-0361aecad844?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80")
@@ -192,7 +190,6 @@ user8 = User.create!(
     language: @languages.sample)
 
 user8.photo.attach(io: picture8, filename: "avatar.png", content_type: "image/png" )
-Subject.all.sample(rand(1...3)).each { |s| user8.learning_subjects.create(subject: s)}
 Subject.all.sample(rand(1...2)).each { |s| user8.teaching_subjects.create(subject: s)}
 
 
@@ -210,7 +207,6 @@ user9 = User.create!(
     language: @languages.sample)
 
 user9.photo.attach(io: picture9, filename: "avatar.png", content_type: "image/png" )
-Subject.all.sample(rand(1...3)).each { |s| user9.learning_subjects.create(subject: s)}
 Subject.all.sample(rand(1...2)).each { |s| user9.teaching_subjects.create(subject: s)}
 
 
@@ -386,8 +382,6 @@ user20 = User.create!(
 
 user20.photo.attach(io: picture20, filename: "avatar.png", content_type: "image/png" )
 Subject.all.sample(rand(1...3)).each { |s| user20.learning_subjects.create(subject: s)}
-
-
 
 # 15.times do
 #   picture = URI.open("https://images.unsplash.com/photo-1586297098710-0382a496c814?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80")
