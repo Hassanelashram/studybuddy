@@ -14,9 +14,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_one_attached :photo
 
-  validates :email, presence: true
-  validates :name, presence: true
-  validates :surname, presence: true
+  validates :email, :name, :surname, presence: true
+  validates :bio, presence: true, on: :update, length: { minimum: 40 }
+  validates :language, :location, presence: true, on: :update
 
   def full_name
     self.name.capitalize + ' ' + self.surname.capitalize
