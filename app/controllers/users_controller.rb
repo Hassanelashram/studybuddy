@@ -2,6 +2,11 @@ class UsersController < ApplicationController
   def index
     query = params[:query]
     @users = policy_scope(User).paginate(page: params[:page], per_page: 5)
+    if params[:type] == 'student'
+      @users = @users.joins(:learning_subjects).where.not(learning_subjects: { id: nil }).distinct
+    else
+      @users = @users.joins(:teaching_subjects).where.not(teaching_subjects: { id: nil }).distinct
+    end
     if query.present?
       if params[:type] == 'student'
         @users = @users.joins(learning_subjects: :subject).where("subjects.name ILIKE ?", query)
