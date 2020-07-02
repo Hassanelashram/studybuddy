@@ -93,7 +93,7 @@
                 <div class="top d-flex justify-content-between">
                   <div class="left">
                     <% if r.reviewer.photo.attached? %>
-                      <%= cl_image_tag r.reviewer.photo.key %>
+                      <%= cl_image_tag r.reviewer.photo.key, crop: :thumb, gravity: :face, width: 80, height: 80, class: "rounded-circle dropdown-toggle" %>
                     <% else %>
                         <img src="https://image.flaticon.com/icons/svg/847/847969.svg" width="80" alt="">
                     <% end %>
