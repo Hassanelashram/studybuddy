@@ -100,7 +100,7 @@ picture3 = URI.open("https://images.unsplash.com/photo-1527980965255-d3b416303d1
 user3 = User.create!(
     name: "Michael",
     surname: "Johnson",
-    email: Faker::Internet.email,
+    email: "michaeljohnson@gmail.com",
     password: '123456',
     price: rand(5...15),
     bio: "Life's short and you have to ram into it what you can. I want to suck up knowledge in my field always. In that sense I love to either teach or learn...as long as I can continue to grow.",
@@ -165,7 +165,7 @@ picture7 = URI.open("https://images.unsplash.com/photo-1494790108377-be9c29b2933
 user7 = User.create!(
     name: "Fabianna",
     surname: "Delupo",
-    email: Faker::Internet.email,
+    email: "fabianadelupo@gmail.com",
     password: '123456',
     price: rand(5...15),
     bio: "I want to be the best in my field. If you think you can help me reach my objective...you're the teacher for me!",
@@ -248,7 +248,7 @@ picture12 = URI.open("https://images.unsplash.com/photo-1548544149-4835e62ee5b3?
 user12 = User.create!(
     name: "Paul",
     surname: "Watson",
-    email: Faker::Internet.email,
+    email: "paulwatson@gmail.com",
     password: '123456',
     price: rand(5...15),
     bio: "Like Rocky, I'm a fighter! Let me take you under my wing and I'll lead you to victory in your field!",
@@ -264,7 +264,7 @@ picture13 = URI.open("https://images.unsplash.com/photo-1551069613-1904dbdcda11?
 user13 = User.create!(
     name: "Shauna",
     surname: "Jordan",
-    email: Faker::Internet.email,
+    email: "shaunajordan@gmail.com",
     password: '123456',
     price: rand(5...15),
     bio: "Help me...help you! Together we can make it happen :)",
@@ -403,7 +403,7 @@ picture22 = URI.open("https://images.unsplash.com/photo-1542909168-82c3e7fdca5c?
 user22 = User.create!(
     name: "Thomas",
     surname: "Wilkinson",
-    email: Faker::Internet.email,
+    email: "thomaswilkinson@gmail.com",
     password: '123456',
     bio: "I have my exams in 2 months and am way behind. I want to re-organise my study material but need someone to help me in order to achieve my objective.",
     location: Faker::Address.state,
@@ -419,7 +419,7 @@ picture23 = URI.open("https://images.unsplash.com/photo-1552058544-f2b08422138a?
 user23 = User.create!(
     name: "Jonathan",
     surname: "Pitmann",
-    email: Faker::Internet.email,
+    email: "jonathanpitmann@gmail.com",
     password: '123456',
     price: rand(5...15),
     bio: "15 years of teaching experience, I now have a fair amount of free time and would like to put it to good use by helping more students",
