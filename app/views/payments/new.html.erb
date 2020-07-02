@@ -1,13 +1,12 @@
 <div style="height: 100px;">
 
     </div>
-<div class="container">
+<div style="height: 75vh" class="container">
   <div class="row py-4">
-    <div class="col-md-3"><%#= cl_image_tag @booking.mentor.photo.key, class: 'avatar' %></div>
-    <div class="col">
-      <h1>Checkout summary</h1>
-      <p>Booking of <strong><%= @booking.mentor.full_name %></strong> for <strong><%= humanized_money_with_symbol @booking.total %></strong></p>
-      <button id="pay" class="btn btn-primary">Pay</button>
+    <div class="col-7 mx-auto">
+      <h1>Session with <strong><%= @booking.mentor.full_name %></strong> <br>for <strong><%= humanized_money_with_symbol @booking.total %></strong></h1>
+      <hr>
+      <button id="pay" class="btn btn-primary w-100">Pay</button>
       <script src="https://js.stripe.com/v3/"></script>
       <script>
         const paymentButton = document.getElementById('pay');
@@ -18,6 +17,6 @@
           });
         });
       </script>
-    </div>
   </div>
+
 </div>
