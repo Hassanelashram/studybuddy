@@ -59,15 +59,15 @@
 <div class="container">
   <div class="row my-4">
     <% if   @users.count == 0 %>
-        <h4 class="col-12 text-center">
-           Looks like we couldn't find any <%= params[:type] ? 'Student' : 'Mentor' %><%= " for #{params[:query]} " if params[:query].present? && params[:query] != '' %>
-           <%= "in #{params[:city]} " if present? %> </h4>
-        <div class="col-12 text-center my-5">
-          <img src="https://image.flaticon.com/icons/svg/2353/2353678.svg" width="200" alt="">
-        </div>
+      <h4 class="col-12 text-center">
+         Looks like we couldn't find any <%= params[:type] ? 'Student' : 'Mentor' %><%= " for #{params[:query]} " if params[:query].present? && params[:query] != '' %>
+         <%= "in #{params[:city]} " if present? %> </h4>
+      <div class="col-12 text-center my-5">
+        <img src="https://image.flaticon.com/icons/svg/2353/2353678.svg" width="200" alt="">
+      </div>
     <% else %>
-    <% @users.each do |u| %>
-        <div class="col-10 my-2 mx-auto">
+      <% @users.each do |u| %>
+        <div class="col-12 my-2 mx-auto">
           <div class="card-user">
             <div class="card-top-part">
               <div class="card-left text-center">
@@ -102,11 +102,11 @@
             </div>
           </div>
         </div>
-        <% end %>
-        <% end %>
-<div class="col-3 mx-auto">
-      <%= will_paginate @users, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
-    </div>
+      <% end %>
+    <% end %>
+  <div class="col-3 mx-auto mt-4">
+    <%= will_paginate @users, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+  </div>
 
 </div>
-
+</div>
