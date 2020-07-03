@@ -12,6 +12,7 @@
       <div class="d-flex align-items-center mt-5">
         <%= f.input :body, label: false, placeholder: "Type your message" %>
         <%= f.submit 'send', class: "btn btn-flat w-25 create-btn" %>
+
       </div>
 
     <% end %>
@@ -21,6 +22,13 @@
 <script>
 var element = document.getElementById("messages"); 
 element.scrollTop = element.scrollHeight;
+// var form = document.getElementById("new_message"); 
+// form.addEventListener("click", () => {
+  var body = document.getElementById("message_body"); 
+  body.value = ""
+// form.submit()
+// form.reset()
+// })
 </script>
 
 </div>
