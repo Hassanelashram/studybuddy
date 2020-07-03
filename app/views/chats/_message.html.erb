@@ -1,14 +1,15 @@
-
-          <div  class="message  p-3 mb-2 <%= 'text-right right' if owner_of_message %>">
-            <div class="message--author">
-              <%= message.user.full_name %>
-            </div>
-            <div class="message--text">
-              <% message.body.lines.each do |line| %>
-                <p><%= line %></p>
-              <% end %>
-            </div>
-            <span class="message--time">
-              <%= message.message_time %>
-            </span>
-          </div>
+<div  class="message  p-3 mb-2 <%= 'text-right right' if message.user == current_user %>"
+      data-sender-id="<%= message.user.id %>"
+>
+  <div class="message--author">
+    <%= message.user.full_name %>
+  </div>
+  <div class="message--text">
+    <% message.body.lines.each do |line| %>
+      <p><%= line %></p>
+    <% end %>
+  </div>
+  <span class="message--time">
+    <%= message.message_time %>
+  </span>
+</div>

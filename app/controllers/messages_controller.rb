@@ -5,18 +5,14 @@ class MessagesController < ApplicationController
   def create
     @message = @chat.messages.new(message_params)
     @message.user = current_user
-    @messages = @chat.messages.order(created_at: :desc)
-    if @message.save
-      ChatroomChannel.broadcast_to(
-        @chat,
-        {
-          owner_partial: render_to_string(partial: "chats/message", locals: { message: @message, owner_of_message: false }),
-          message_author: @message.user.id,
-          reciever_partial: render_to_string(partial: "chats/message", locals: { message: @message, owner_of_message: true })
-        }
-      )
-    end
     authorize @message
+
+    ChatroomChannel.broadcast_to(
+      @chat,
+      render_to_string(partial: "chats/message", locals: { message: @message })
+    ) if @message.save
+
+    head :no_content
   end
 
   private
