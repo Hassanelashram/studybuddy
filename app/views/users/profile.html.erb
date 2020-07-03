@@ -82,7 +82,7 @@
 
   <div class="container">
     <div class="row">
-        <h2 class="sub-heading"><%= @user.name %>'s reviews</h2>
+        <h2 class="sub-heading"><%= @user.name %>'s <%= pluralize( @user.received_reviews.count, 'review' ) %></h2>
         <% if @user.received_reviews.present? %>
           <% @user.received_reviews.each do |r| %>
             <div class="col-12">
