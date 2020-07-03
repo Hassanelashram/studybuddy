@@ -4,12 +4,19 @@
     <title><%= yield(:title) %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= tag :meta, name: 'current',
+                   content: current_user.id,
+                   data: {
+                      email: current_user.email,
+                    } if user_signed_in?
+    %>
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag asset_path('favicon.png') %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
-      
+
     <title><%= meta_title %></title>
 <meta name="description" content="<%= meta_description %>">
 
