@@ -39,6 +39,14 @@ input::-webkit-input-placeholder {
   color: $dark-gray;
 }
 
+.homepage-banner {
+  background-position: bottom;
+
+  input::-webkit-input-placeholder {
+    color: $gray;
+  }
+}
+
 .search_form {
   width: fit-content;
   input {
