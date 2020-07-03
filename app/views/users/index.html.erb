@@ -86,7 +86,7 @@
                 <div class="extra-info">
                   <i class="far fa-star"></i>
                   <%= u.average_ratings if u.received_reviews.present? %>
-                  (<%= u.received_reviews.count %> reviews)
+                  (<%= pluralize( u.received_reviews.count, 'review' ) %>)
                   <i class="fas fa-language"></i>
                   <%= u.language %>
                   <i class="fas fa-map-marker-alt"></i>
