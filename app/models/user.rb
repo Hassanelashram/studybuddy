@@ -35,7 +35,7 @@ class User < ApplicationRecord
     reviews.each do |r|
       sum += r.stars
     end
-    average = sum.fdiv(reviews.count)
+    average = sum.fdiv(reviews.count).round(1)
   end
 
   def profile_completetion
