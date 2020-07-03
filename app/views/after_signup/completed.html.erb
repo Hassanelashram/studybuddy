@@ -12,38 +12,7 @@
       <hr>
     </div>
     <div class="col-12">
-      <p><strong>Learning Subjects: </strong>
-          <% @user.learning_subjects.each do |s| %>
-            <span class="tag"><%= s.name %></span>
-        <% end %>
-        </p>
-    </div>
-    <div class="col-12">
-      <p><strong>Teaching Subjects: </strong>
-          <% @user.teaching_subjects.each do |s| %>
-            <span class="tag"><%= s.name %></span>
-        <% end %>
-        </p>
-    </div>
-    <div class="col-12">
-      <p><strong>language: </strong>
-          <%= @user.language %>
-        </p>
-    </div>
-    <div class="col-12">
-      <p><strong>Rate/hour: </strong>
-          <%= @user.price %> euros
-          <strong>Location: </strong>
-          <%= @user.location %>
-        </p>
-    </div>
-    <div class="col-12">
-      <p><strong>Biography: </strong>
-          <%= @user.bio %>
-        </p>
-    </div>
-    <div class="col-12">
-      <%= link_to 'Search for buddies', results_path, class: 'btn btn-flat'  %>
+      <%= link_to 'Go to my profile', profile_path(current_user), class: 'btn btn-flat'  %>
     </div>
   </div>
 </div>

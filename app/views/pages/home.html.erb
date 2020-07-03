@@ -1,10 +1,12 @@
 <% content_for :title, "How does study buddy work" %>
 <% content_for :description, "The best way to study, join our community" %>
+
 <div class="homepage-banner banner" style="height: 800px; background-image: url(https://images.unsplash.com/photo-1495465798138-718f86d1a4bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80)">
   <div class="container" style="margin-top: 0;" data-controller="autocomplete">
 
     <h2 class="main-heading">Study Better, Study Faster</h2>
     <h5 class="sub-heading">Find a buddy/mentor to study with</h5>
+
     <form action="/results" class="search_form position-relative">
       <input type="text" autocomplete="off" data-target='autocomplete.input' data-action="keyup->autocomplete#suggest" name="query" placeholder="Math, algebra">
       <i class="fas fa-search position-absolute"></i>
@@ -19,8 +21,10 @@
    <div class="row no-gutters p-5">
     <div class="container d-flex p-5">
       <div>
-        <h4 class="heading">Choose between hundreds of Mentors!</h4>
-        <p class="text-justify">Find the mentor that best suits your requirements. Check out their profile based on previous reviews and choose a date and time for your personalized teaching session! </p>
+        <h4 class="heading">Find the perfect buddy!</h4>
+        <p class="text-justify">Connect with other students with the same interests as you. <br>
+        See their reviews, learn about them, <br>Chat or even meet up.
+        Why study alone when you can have a study buddy?</p>
           <%= link_to 'Get help now', results_path, class: 'btn btn-flat'  %>
       </div>
       <div style="margin-left: 8rem;">

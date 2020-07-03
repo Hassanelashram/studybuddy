@@ -100,7 +100,7 @@ picture3 = URI.open("https://images.unsplash.com/photo-1527980965255-d3b416303d1
 user3 = User.create!(
     name: "Michael",
     surname: "Johnson",
-    email: Faker::Internet.email,
+    email: "michaeljohnson@gmail.com",
     password: '123456',
     price: rand(5...15),
     bio: "Life's short and you have to ram into it what you can. I want to suck up knowledge in my field always. In that sense I love to either teach or learn...as long as I can continue to grow.",
@@ -165,7 +165,7 @@ picture7 = URI.open("https://images.unsplash.com/photo-1494790108377-be9c29b2933
 user7 = User.create!(
     name: "Fabianna",
     surname: "Delupo",
-    email: Faker::Internet.email,
+    email: "fabianadelupo@gmail.com",
     password: '123456',
     price: rand(5...15),
     bio: "I want to be the best in my field. If you think you can help me reach my objective...you're the teacher for me!",
@@ -248,7 +248,7 @@ picture12 = URI.open("https://images.unsplash.com/photo-1548544149-4835e62ee5b3?
 user12 = User.create!(
     name: "Paul",
     surname: "Watson",
-    email: Faker::Internet.email,
+    email: "paulwatson@gmail.com",
     password: '123456',
     price: rand(5...15),
     bio: "Like Rocky, I'm a fighter! Let me take you under my wing and I'll lead you to victory in your field!",
@@ -264,7 +264,7 @@ picture13 = URI.open("https://images.unsplash.com/photo-1551069613-1904dbdcda11?
 user13 = User.create!(
     name: "Shauna",
     surname: "Jordan",
-    email: Faker::Internet.email,
+    email: "shaunajordan@gmail.com",
     password: '123456',
     price: rand(5...15),
     bio: "Help me...help you! Together we can make it happen :)",
@@ -382,6 +382,87 @@ user20 = User.create!(
 
 user20.photo.attach(io: picture20, filename: "avatar.png", content_type: "image/png" )
 Subject.all.sample(rand(1...3)).each { |s| user20.learning_subjects.create(subject: s)}
+
+picture21 = URI.open("https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=933&q=80")
+
+user21 = User.create!(
+    name: "Rebecca",
+    surname: "Princeton",
+    email: Faker::Internet.email,
+    password: '123456',
+    bio: "I'm really freaking out! I need some serious help in order for me to get through my subject matter. Can you please help me? I will be forever grateful.",
+    location: Faker::Address.state,
+    language: @languages.sample)
+
+user21.photo.attach(io: picture21, filename: "avatar.png", content_type: "image/png" )
+Subject.all.sample(rand(1...3)).each { |s| user21.learning_subjects.create(subject: s)}
+
+
+picture22 = URI.open("https://images.unsplash.com/photo-1542909168-82c3e7fdca5c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80")
+
+user22 = User.create!(
+    name: "Thomas",
+    surname: "Wilkinson",
+    email: "thomaswilkinson@gmail.com",
+    password: '123456',
+    bio: "I have my exams in 2 months and am way behind. I want to re-organise my study material but need someone to help me in order to achieve my objective.",
+    location: Faker::Address.state,
+    language: @languages.sample)
+
+user22.photo.attach(io: picture22, filename: "avatar.png", content_type: "image/png" )
+Subject.all.sample(rand(1...3)).each { |s| user22.learning_subjects.create(subject: s)}
+
+
+
+picture23 = URI.open("https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=944&q=80")
+
+user23 = User.create!(
+    name: "Jonathan",
+    surname: "Pitmann",
+    email: "jonathanpitmann@gmail.com",
+    password: '123456',
+    price: rand(5...15),
+    bio: "15 years of teaching experience, I now have a fair amount of free time and would like to put it to good use by helping more students",
+    location: Faker::Address.state,
+    language: @languages.sample)
+
+user23.photo.attach(io: picture23, filename: "avatar.png", content_type: "image/png" )
+Subject.all.sample(rand(1...2)).each { |s| user23.teaching_subjects.create(subject: s)}
+
+
+
+picture24 = URI.open("https://images.unsplash.com/photo-1557773092-edb2806042d2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80")
+
+user24 = User.create!(
+    name: "Leonard",
+    surname: "Gibson",
+    email: Faker::Internet.email,
+    password: '123456',
+    price: rand(5...15),
+    bio: "Nearly 10 years in the sector, I am looking to get back to what I do best; teach. If you'd like an in-depth assistance with your studies, don't hesitate to contact me!",
+    location: Faker::Address.state,
+    language: @languages.sample)
+
+user24.photo.attach(io: picture24, filename: "avatar.png", content_type: "image/png" )
+Subject.all.sample(rand(1...2)).each { |s| user24.teaching_subjects.create(subject: s)}
+
+
+
+picture25 = URI.open("https://images.unsplash.com/photo-1568364419972-92c33702c48f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80")
+
+user25 = User.create!(
+    name: "Gregory",
+    surname: "Parlour",
+    email: Faker::Internet.email,
+    password: '123456',
+    price: rand(5...15),
+    bio: "I have a passion for sharing my knowledge and have been doing it for years, but never as a proper teacher. Book a session with me and I'll show you I'm the person for you. I'll help you achieve your goals!",
+    location: Faker::Address.state,
+    language: @languages.sample)
+
+user25.photo.attach(io: picture25, filename: "avatar.png", content_type: "image/png" )
+Subject.all.sample(rand(1...2)).each { |s| user25.teaching_subjects.create(subject: s)}
+
 
 # 15.times do
 #   picture = URI.open("https://images.unsplash.com/photo-1586297098710-0382a496c814?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80")

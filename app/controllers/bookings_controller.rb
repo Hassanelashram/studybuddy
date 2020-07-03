@@ -16,8 +16,8 @@ class BookingsController < ApplicationController
         currency: 'eur',
         quantity: 1
         }],
-        success_url: allbookings_url,
-        cancel_url: allbookings_url
+        success_url: dashboard_url,
+        cancel_url: dashboard_url
       )
         @booking.update(checkout_session_id: session.id)
         redirect_to new_booking_payment_path(@booking)
