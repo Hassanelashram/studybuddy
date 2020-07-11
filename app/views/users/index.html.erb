@@ -3,7 +3,7 @@
 <div class="banner" style="margin-bottom: 150px;background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path "results_banner.png" %>);">
   <div class="container" data-controller="autocomplete">
     <div class="row">
-      <div class="col-5">
+      <div class="col-sm-12 col-lg-5">
         <div class="filter-box">
           <form action="/results">
             <h5 class="sub-heading ">What do you want to study?</h5>
@@ -69,8 +69,9 @@
       <% @users.each do |u| %>
         <div class="col-12 my-2 mx-auto">
           <div class="card-user">
-            <div class="card-top-part">
-              <div class="card-left text-center">
+            <div class="row">
+              <div class="col-sm-12 col-lg-2 mx-auto text-center">
+                <div class="card-left text-center mx-auto">
                 <% if u.photo.attached? %>
                   <%= cl_image_tag u.photo.key, crop: :thumb, gravity: :face, width: 120, height: 120, class: "rounded-circle dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false  %>
                 <% else %>
@@ -78,7 +79,9 @@
                 <% end %>
                 <%= link_to 'Get help', profile_path(u), class: 'btn btn-flat mt-4' %>
               </div>
-              <div class="card-right ml-4">
+              </div>
+
+              <div class="col-sm-12 col-lg-10">
                 <h3> <strong><%= u.full_name  %></strong> </h3>
                 <% u.teaching_subjects.each do |s| %>
                   <div class="tag"><%= s.name %></div>
@@ -104,9 +107,8 @@
         </div>
       <% end %>
     <% end %>
-  <div class="col-3 mx-auto mt-4">
+    <div class="col-12">
     <%= will_paginate @users, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+    </div>
   </div>
-
-</div>
 </div>

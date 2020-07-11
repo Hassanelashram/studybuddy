@@ -1,7 +1,7 @@
 <% content_for :title, "How does study buddy work" %>
 <% content_for :description, "The best way to study, join our community" %>
 
-<div class="homepage-banner banner" style="height: 650px; background-image: url(https://images.unsplash.com/photo-1495465798138-718f86d1a4bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80)">
+<div class="homepage-banner banner" style="height: 70vh; background-image: url(https://images.unsplash.com/photo-1495465798138-718f86d1a4bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80)">
   <div class="container" style="margin-top: 0;" data-controller="autocomplete">
 
     <h2 class="main-heading">Study Better, Study Faster</h2>
@@ -18,28 +18,33 @@
 </div>
   <!-- <div class="container-fluid"> -->
 
-   <div class="row no-gutters p-5">
-    <div class="container d-flex p-5">
-      <div>
-        <h4 class="heading">Find the perfect buddy!</h4>
-        <p class="text-justify">Connect with other students with the same interests as you. <br>
-        See their reviews, learn about them, <br>Chat or even meet up.
-        Why study alone when you can have a study buddy?</p>
-          <%= link_to 'Get help now', results_path, class: 'btn btn-flat'  %>
-      </div>
-      <div style="margin-left: 8rem;">
-        <%= image_tag "home1.png", :class => "style_img_home" %>
-      </div>
+   <div class=" no-gutters">
+    <div class="container my-5">
+      <div class="row">
+        <div class="col-sm-12 col-lg-6 my-5">
+          <h4 class="heading">Find the perfect buddy!</h4>
+          <p class="text-justify">
+            Connect with other students with the same interests as you. <br>
+            See their reviews, learn about them, <br>Chat or even meet up.
+            Why study alone when you can have a study buddy?
+          </p>
+        <%= link_to 'Get help now', results_path, class: 'btn btn-flat'  %>
+        </div>
+        <div class="col-sm-12 col-lg text-center my-5">
+         <%= image_tag "home1.png", :class => "style_img_home" %>
+        </div>
+       </div>
     </div>
-  </div>
+    </div>
 
-    <div style="height: 400px;" class="row no-gutters color1 p-5">
-      <h4 style="color: white;" class="heading col-12 text-center">
+    <div  class="no-gutters color1 p-5">
+      <div class="container d-flex">
+        <div class="row">
+          <h4 style="color: white;" class="heading col-12 text-center">
           Meet the mentors of the week
         </h4>
-      <div class="container d-flex">
         <% @mentors.each do |mentor| %>
-        <div class="col-4">
+        <div class="col-sm-12 col-lg-4 my-3">
           <div class="home-card d-flex">
               <div>
                 <% if mentor.photo.attached? %>
@@ -55,43 +60,46 @@
             </div>
         </div>
         <% end %>
+        </div>
       </div>
     </div>
 
-  <div class="row no-gutters p-5">
+  <div class=" no-gutters">
     <div class="container d-flex p-5">
-      <div class="">
-        <%= image_tag "home2.png", :class => "style_img_home" %>
+      <div class="row">
+        <div class="col-sm-12 col-lg-6 my-5">
+          <%= image_tag "home2.png", :class => "style_img_home" %>
+        </div>
+        <div class="col-sm-12 col-lg-6 my-5">
+          <h4 class="heading">Use your knowledge to earn money!</h4>
+          <p class="text-justify">Do you feel you have a superior academic level in a specific field? If so, why not provide your assistance to a struggling student in that same field? And yay…you can even make some money from it!</p>
+          <p class="text-justify">Mentors don’t require a diploma in their field, so anyone that feels he or she has the skillset can provide their services as a mentor on Study Budd-e. Be aware however that the service is based on a review system. The more positive reviews, the better your chances of gaining a great Study Budd-e reputation and teaching more and more eager students.
+          </p>
+          <%= link_to 'Become a mentor', new_user_registration_path, class:'btn btn-flat' %>
+        </div>
       </div>
-    <div style="margin-left: 8rem;">
-      <h4 class="heading">Use your knowledge to earn money!</h4>
-      <p class="text-justify">Do you feel you have a superior academic level in a specific field? If so, why not provide your assistance to a struggling student in that same field? And yay…you can even make some money from it!</p>
-    <p class="text-justify">Mentors don’t require a diploma in their field, so anyone that feels he or she has the skillset can provide their services as a mentor on Study Budd-e. Be aware however that the service is based on a review system. The more positive reviews, the better your chances of gaining a great Study Budd-e reputation and teaching more and more eager students.
-    </p>
-    <%= link_to 'Become a mentor', new_user_registration_path, class:'btn btn-flat' %>
     </div>
-    </div>
-
   </div>
 
-  <div class="row no-gutters color2 p-5">
+  <div class="no-gutters color2">
     <div class="container p-5">
-      <div class="col-12 text-center">
-        <h4 style="color: white;" class="heading"> Most popular Fields</h4>
-        <p style="color: white;"  class="text-center">Check out some of our most popular academic fields, or find more by specifying your field in the search bar at the top of the page and clicking ‘find a buddy’</p>
-      </div>
-      <div class="col-sm-12 col-lg text-center my-5">
-        <% Subject.all.each do |s| %>
-        <%= link_to "results?query=#{s.name}" do %>
-          <div class="tag p-3">
-            <%= s.name %>
-          </div>
+      <div class="row">
+        <div class="col-12 text-center">
+          <h4 style="color: white;" class="heading"> Most popular Fields</h4>
+          <p style="color: white;"  class="text-center">Check out some of our most popular academic fields, or find more by specifying your field in the search bar at the top of the page and clicking ‘find a buddy’</p>
+        </div>
+        <div class="col-12 text-center">
+          <% Subject.all.each do |s| %>
+            <%= link_to "results?query=#{s.name}" do %>
+              <p class="tag p-3 m-2 ">
+                <%= s.name %>
+              </p>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
     </div>
   </div>
-<!-- </div> -->
 
 
 
