@@ -30,17 +30,6 @@ class UsersController < ApplicationController
       @users = @users.order(price_cents: :desc)
     end
     end
-    # if query.present? && params[:city].present? && params[:type] == 'student'
-    #   @users = policy_scope(User).joins(learning_subjects: :subject).where("subjects.name ILIKE ? AND location = ?", query, params[:city])
-    # elsif query.present? && params[:type] == 'student'
-    #   @users = policy_scope(User).joins(learning_subjects: :subject).where("subjects.name ILIKE ?", query)
-    # elsif query.present? && params[:city].present?
-    #   @users = policy_scope(User).joins(teaching_subjects: :subject).where("subjects.name ILIKE ? AND location = ?", query, params[:city])
-    # elsif query.present?
-    #   @users = policy_scope(User).joins(teaching_subjects: :subject).where("subjects.name ILIKE ?", query)
-    # else
-    #   @users = policy_scope(User)
-    # end
   end
 
   def autocomplete

@@ -1,18 +1,16 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!, except: [:index, :profile, :autocomplete]
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :last_seen_at, if: -> {user_signed_in? && (current_user.last_seen_at.nil? ||current_user.last_seen_at < 5.minutes.ago) }
   include Pundit
 
   # Pundit: white-list approach.
   after_action :verify_authorized, except: :index, unless: :skip_pundit?
   after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
 
-  # Uncomment when you *really understand* Pundit!
-  # rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
-  # def user_not_authorized
-  #   flash[:alert] = "You are not authorized to perform this action."
-  #   redirect_to(root_path)
-  # end
+  def last_seen_at
+    current_user.update_attribute(:last_seen_at, Time.current)
+  end
 
   protected
 
