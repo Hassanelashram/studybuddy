@@ -77,6 +77,9 @@
                 <% else %>
                  <img src="https://image.flaticon.com/icons/svg/847/847969.svg" width="120" class="rounded-circle dropdown-toggle", id="navbarDropdown", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false"  >
                 <% end %>
+                <% unless u.last_seen_at.nil? || u.last_seen_at < 5.minutes.ago %>
+                  <div class="badge badge-success">Online</div>
+                <% end %>
                 <%= link_to 'Get help', profile_path(u), class: 'btn btn-flat mt-4' %>
               </div>
               </div>
