@@ -4,6 +4,7 @@
 #### Then say what fields you are interested in and be able to browse and filter and find someone to study with.
 
 #### Mentors can charge an hourly rate while students are free.
+Website: http://www.studiesbuddies.com/
 
 ## Functionalities:
 - Devise Authentication
