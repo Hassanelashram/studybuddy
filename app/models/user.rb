@@ -23,35 +23,29 @@ class User < ApplicationRecord
   end
 
   def self.languages_from_search(users)
-    languages = users.map do |user|
-      user.language
-    end
-    return languages.uniq
+    users.map(&:language).uniq
   end
 
   def average_ratings
-    reviews = Review.where(reviewed_id: self.id)
-    sum = 0
-    reviews.each do |r|
-      sum += r.stars
-    end
-    average = sum.fdiv(reviews.count).round(1)
+    return if received_reviews.count.nil?
+
+    total_stars = received_reviews.pluck(:stars).sum
+    total_stars.fdiv(received_reviews.count).round(1)
   end
 
-  def profile_completetion
-    total_points = 2
-    total_points += 1 if self.location.present?
-    total_points += 1 if self.bio.present?
-    total_points += 1 if self.photo.attached?
-    return total_points
+  def profile_completetion_percentage
+    
   end
 
   def completion_percentage
-    points = profile_completetion
-    percentage = points * 2 * 10
+    total_points = 2
+    total_points += 1 if location.present?
+    total_points += 1 if bio.present?
+    total_points += 1 if photo.attached?
+    total_points * 2 * 10
   end
 
   def earnings
-     self.received_bookings.sum(:total_cents)
+     received_bookings.sum(:total_cents)
   end
 end
